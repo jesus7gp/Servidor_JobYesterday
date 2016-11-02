@@ -23,11 +23,16 @@ else
 	$candidato = $_POST['candidato'];
 	$datoscandidato = $_POST['datoscandidato'];
 
-	if(errores = true){
+	if($perscont == ""){
+		$errores == true;
+	}
+
+	if($errores == true){
 		include_once "../vistas/formularioadd.php";
 	}
 	else{
 		insertaOferta($descripcion, $perscont, $tlfnocont, $email, $direccion, $poblacion, $codpostal, $provincia, $estado, $fechacom, $psicologo, $candidato, $datoscandidato);
+		include_once "muestraOfertas.php";
 	}
 	
 }
