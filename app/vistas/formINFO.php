@@ -1,4 +1,4 @@
-<h1>Borrar oferta</h1>
+<h1>Información completa</h1>
 <FORM ACTION="" METHOD="POST">
 Descripción: <?php echo $reg['descripcion']?><p>
 Persona de contacto: <?php echo $reg['persona_contacto']?><p>
@@ -15,6 +15,5 @@ Psicólogo encargado: <?php echo $reg['psicologo']?><p>
 Candidato seleccionado: <?php echo $reg['candidato']?><p>
 Otros datos candidato: <?php echo $reg['otros_datos_candidato']?><p>
 <input type="hidden" name="id" value="<?= $reg['id'] ?> ">
-<input name="borrar" type="submit" value="Borrar">
-<input name="borrar" type="submit" value="Cancelar">
+<input name="volver" type="submit" value="Volver">
 </FORM>

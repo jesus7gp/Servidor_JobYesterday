@@ -38,7 +38,7 @@ function modificaOferta($id, $descripcion, $persona_contacto, $telefono, $email,
 }
 
 function ofertasPaginacion($inicio, $tam){
-    $sentencia = "SELECT * FROM oferta LIMIT ".$inicio.",".$tam;
+    $sentencia = "SELECT * FROM oferta ORDER BY fecha_crea DESC LIMIT ".$inicio.",".$tam;
 
 	$Db = db::getInstance();
     return $Db->Consulta($sentencia);
