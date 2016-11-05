@@ -38,6 +38,8 @@ function muestraOfertas($result){
 			echo '<td>'.$registro['persona_contacto'].'</td>';
 			echo '<td>'.$registro['email'].'</td>';
 			echo '<td>'.$registro['fecha_crea'].'</td>';
+			echo '<td><FORM ACTION="" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button name="modificar">Modificar</button></FORM></td>';
+			echo '<td><FORM ACTION="../controladores/borraOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button name="eliminar">Borrar</button></FORM></td>';
 		echo '</tr>';
 	}
 }

@@ -2,7 +2,7 @@
 include 'claseBBDD.php';
 function selectProvincias(){
 	$Db = db::getInstance();
-	$rsProvincias = $Db -> Consulta("SELECT id, nombre FROM tbl_provincias");
+	$Db -> Consulta("SELECT id, nombre FROM tbl_provincias");
 	$listado = [];
 	while($reg = $Db->LeeRegistro()){
 		$listado[$reg['id']]=$reg['nombre']; 
@@ -17,8 +17,22 @@ function insertaOferta($descripcion, $persona_contacto, $telefono, $email, $dire
 	$Db -> Ejecutar($sentencia);
 }
 
+function eligeOferta($cod){
+	$sentencia = 'SELECT * FROM oferta WHERE id = "'.$cod.'"';
+	$Db = db::getInstance();
+	$Db -> Consulta($sentencia);
+	$reg = $Db->LeeRegistro();
+	return $reg;
+}
+
+function borraOferta($cod){
+	$sentencia = 'DELETE FROM oferta WHERE id = "'.$cod.'"';
+	$Db = db::getInstance();
+	$Db -> Ejecutar($sentencia);
+}
+
 function ofertasPaginacion($inicio, $tam){
-    $sentencia = "SELECT persona_contacto, email, fecha_crea FROM oferta LIMIT ".$inicio.",".$tam;
+    $sentencia = "SELECT * FROM oferta LIMIT ".$inicio.",".$tam;
 
 	$Db = db::getInstance();
     return $Db->Consulta($sentencia);
