@@ -2,7 +2,7 @@
 
 function CreaSelect($name, $opciones, $valorDefecto='')
 {
-	$html="\n".'<select name="'.$name.'">';
+	$html="\n".'<select name="'.$name.'" class="form-control">';
 	foreach($opciones as $value=>$text)
 	{
 		if ($value==$valorDefecto)
@@ -25,7 +25,7 @@ function CreaRadio($name, $opciones, $valorDefecto='')
 			$checked="checked=\"checked\"";
 		else
 			$checked="";
-		$html.= "\n\t<input type=\"radio\" name=\"$name\" value=\"$value\" $checked>$text";
+		$html.= "\n\t<input type=\"radio\" name=\"$name\" value=\"$value\" $checked>$text<br>";
 	}
 
 
@@ -40,12 +40,17 @@ function stringFecha($cadena){
 function muestraOfertas($result){
 	while ($registro = mysqli_fetch_assoc($result)){
 		echo '<tr>';
+			echo '<td>'.$registro['descripcion'].'</td>';
 			echo '<td>'.$registro['persona_contacto'].'</td>';
+			echo '<td>'.$registro['telefono'].'</td>';
 			echo '<td>'.$registro['email'].'</td>';
 			echo '<td>'.stringFecha($registro['fecha_crea']).'</td>';
-			echo '<td><FORM ACTION="../controladores/modOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button name="modificar">Modificar</button></FORM></td>';
-			echo '<td><FORM ACTION="../controladores/borraOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button name="eliminar">Borrar</button></FORM></td>';
-			echo '<td><FORM ACTION="../controladores/infoOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button name="info">+Info</button></FORM></td>';
+			echo '<td><FORM ACTION="../controladores/modOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="modificar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+</button></FORM></td>';
+			echo '<td><FORM ACTION="../controladores/borraOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i>
+</button></FORM></td>';
+			echo '<td><FORM ACTION="../controladores/infoOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="info"><i class="fa fa-info-circle" aria-hidden="true"></i>
+</button></FORM></td>';
 		echo '</tr>';
 	}
 }
