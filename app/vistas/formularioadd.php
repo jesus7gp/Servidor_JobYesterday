@@ -26,7 +26,7 @@
 		</fieldset>
 		<fieldset class="form-group">
 			<label for="">Persona de contacto</label>
-			<input for=""text" name="perscont" class="form-control" value="<?=VP('perscont','')?>"><br>
+			<input type="text" name="perscont" class="form-control" value="<?=VP('perscont','')?>"><br>
 		</fieldset>
 		<fieldset class="form-group">
 			<label for="">Teléfono de contacto:</label>

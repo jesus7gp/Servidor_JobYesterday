@@ -32,7 +32,7 @@ function borraOferta($cod){
 }
 
 function modificaOferta($id, $descripcion, $persona_contacto, $telefono, $email, $direccion, $poblacion, $codigo_postal, $provincia, $estado, $fecha_com, $psicologo, $candidato, $otros_datos_candidato){
-	$sentencia = 'UPDATE oferta SET descripcion="'.$descripcion.'", persona_contacto="'.$persona_contacto.'", telefono="'.$telefono.'", email="'.$email.'", direccion="'.$direccion.'", poblacion="'.$poblacion.'", codigo_postal="'.$codigo_postal.'", provincia="'.$provincia.'", estado="'.$estado.'", fecha_com="'.$fecha_com.'", psicologo="'.$psicologo.'", candidato="'.$candidato.'", otros_datos_candidato="'.$otros_datos_candidato.'" WHERE id = "'.$id.'"';
+	$sentencia = 'UPDATE oferta SET descripcion="'.$descripcion.'", persona_contacto="'.$persona_contacto.'", telefono="'.$telefono.'", email="'.$email.'", direccion="'.$direccion.'", poblacion="'.$poblacion.'", codigo_postal="'.$codigo_postal.'", provincia="'.$provincia.'", estado="'.$estado.'", fecha_com="'.$fecha_com.'", psicologo="'.$psicologo.'", candidato="'.$candidato.'", otros_datos_candidato="'.$otros_datos_candidato.'" WHERE id = "'.$id.'";';
 	$Db = db::getInstance();
 	$Db -> Ejecutar($sentencia);
 }

@@ -25,7 +25,8 @@
 			<input type="text" name="descripcion" class="form-control" value="<?=VP('descripcion',$reg["descripcion"])?>"><br>
 		</fieldset>
 		<fieldset class="form-group">
-			<label for=""text" name="perscont" class="form-control" value="<?=VP('perscont',$reg["persona_contacto"])?>"><br>
+			<label for="">Persona de contacto</label>
+			<input type="text" name="perscont" class="form-control" value="<?=VP('perscont',$reg["persona_contacto"])?>"><br>
 		</fieldset>
 		<fieldset class="form-group">
 			<label for="">Teléfono de contacto:</label>
