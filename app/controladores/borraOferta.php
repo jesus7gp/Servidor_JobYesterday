@@ -12,10 +12,10 @@ else
 	if ($_POST['borrar'] == "Borrar"){
     	$id = $_POST['id'];
     	borraOferta($id);
-    	include_once "muestraOfertas.php";
+    	header('Location: muestraOfertas.php'); 
 	}
 	else{
-		include_once "muestraOfertas.php";
+		header('Location: muestraOfertas.php'); 
 		
 	}
 	

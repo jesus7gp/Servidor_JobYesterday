@@ -3,13 +3,14 @@ include_once '../modelos/funciones.php';
 include_once '../helpers/helpers.php';
 include_once 'filtrado.php';
 if (! $_POST){
-	include_once "../vistas/formularioadd.php";
+	$reg = eligeOferta($_GET['id']);
+	include_once "../vistas/formMOD.php";
 	
 }
 else
 {
 	$errores = false;
-
+	$id = $_POST['id'];
 	$descripcion = $_POST['descripcion'];
 	$perscont = $_POST['perscont'];
 	$tlfnocont = $_POST['tlfnocont'];
@@ -24,17 +25,28 @@ else
 	$candidato = $_POST['candidato'];
 	$datoscandidato = $_POST['datoscandidato'];
 
-	if($perscont == ""){
-		$errores == true;
-	}
+	
+	
 
-	if($errores == true){
-		include_once "../vistas/formularioadd.php";
+
+	if ($_POST['mod'] == "Guardar cambios"){
+    	if($perscont == ""){
+			$errores = true;
+		}
+
+		if($errores == true){
+			include_once "../vistas/formMOD.php";
+		}
+		else{
+
+			modificaOferta($id, $descripcion, $perscont, $tlfnocont, $email, $direccion, $poblacion, $codpostal, $provincia, $estado, $fechacom, $psicologo, $candidato, $datoscandidato);
+			header('Location: muestraOfertas.php'); 
+			
+		}
 	}
 	else{
-		insertaOferta($descripcion, $perscont, $tlfnocont, $email, $direccion, $poblacion, $codpostal, $provincia, $estado, $fechacom, $psicologo, $candidato, $datoscandidato);
 		header('Location: muestraOfertas.php'); 
+		
 	}
-	
 }
 ?>
