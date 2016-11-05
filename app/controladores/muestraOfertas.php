@@ -1,8 +1,9 @@
 <?php 
 include_once '../modelos/funciones.php';
+include_once '../helpers/helpers.php';
 include_once 'filtrado.php';
- 
-    $TAMANO_PAGINA = 3; 
+
+    $TAMANO_PAGINA = 10; 
 
     @$pagina = $_GET['pagina']; 
     if (!$pagina) { 

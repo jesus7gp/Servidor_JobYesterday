@@ -92,7 +92,7 @@ Class Db {
 			}
 			$result=$this->result;
 		}
-		$this->regActual=$result->msqli_fetch_array();;
+		$this->regActual=$result->fetch_array();;
 		return $this->regActual;
 	}
 

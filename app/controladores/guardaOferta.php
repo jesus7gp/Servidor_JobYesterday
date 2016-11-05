@@ -1,5 +1,6 @@
 <?php
 include_once '../modelos/funciones.php';
+include_once '../helpers/helpers.php';
 include_once 'filtrado.php';
 if (! $_POST){
 	include_once "../vistas/formularioadd.php";

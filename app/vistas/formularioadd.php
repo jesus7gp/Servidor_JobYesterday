@@ -1,4 +1,5 @@
 <?php
+include_once '../modelos/funciones.php';
 $rsProvincias = selectProvincias();
 ?>
 <h1>Añadir oferta</h1>
@@ -11,22 +12,10 @@ Dirección:<input type="text" name="direccion" value="<?=VP('direccion','')?>"><
 Población:<input type="text" name="poblacion" value="<?=VP('poblacion','')?>"><p>
 Código postal:<input type="text" name="codpostal" value="<?=VP('codpostal','')?>"><p>
 Provincia:
-<select name="provincia">
-<?php 
-while($regProv=mysqli_fetch_assoc($rsProvincias))
-		{
-			echo "<option value='{$regProv['cod']}'>".$regProv['nombre'];
-		}
-?>
-</select>
+<?php echo CreaSelect('provincia',$rsProvincias,VP('provincia','')); ?>
 <p>
 Estado:
-<select name="estado">
-	<option value="P">Pendiente de iniciar selección
-	<option value="R">Realizando selección
-	<option value="S">Seleccionado candidato
-	<option value="C">Cancelada
-</select>
+<?php echo CreaRadio('estado',array('P'=>'Pendiente de iniciar selección','R'=>'Realizando selección','S'=>'Seleccionado candidato','C'=>'Cancelada'),VP('estado','')); ?>
 
 <p>
 Fecha de comunicación:<input type="text" name="fechacom" value="<?=VP('fechacom','')?>"><p>
