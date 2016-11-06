@@ -10,9 +10,9 @@ function selectProvincias(){
 	return $listado;
 }
 
-function insertaOferta($descripcion, $persona_contacto, $telefono, $email, $direccion, $poblacion, $codigo_postal, $provincia, $estado, $fecha_com, $psicologo, $candidato, $otros_datos_candidato){
-	$sentencia = 'INSERT INTO oferta (id, descripcion, persona_contacto, telefono, email, direccion, poblacion, codigo_postal, provincia, estado, fecha_com, psicologo, candidato, otros_datos_candidato)
-			VALUES (null, "'.$descripcion.'", "'.$persona_contacto.'", "'.$telefono.'", "'.$email.'", "'.$direccion.'", "'.$poblacion.'", "'.$codigo_postal.'", "'.$provincia.'", "'.$estado.'", "'.$fecha_com.'", "'.$psicologo.'", "'.$candidato.'", "'.$otros_datos_candidato.'");';
+function insertaOferta($datos){
+	$sentencia = 'INSERT INTO oferta (descripcion, persona_contacto, telefono, email, direccion, poblacion, codigo_postal, provincia, estado, fecha_com, psicologo, candidato, otros_datos_candidato)
+			VALUES ("'.$datos["descripcion"].'", "'.$datos["perscont"].'", "'.$datos["tlfnocont"].'", "'.$datos["email"].'", "'.$datos["direccion"].'", "'.$datos["poblacion"].'", "'.$datos["codpostal"].'", "'.$datos["provincia"].'", "'.$datos["estado"].'", "'.$datos["fechacom"].'", "'.$datos["psicologo"].'", "'.$datos["candidato"].'", "'.$datos["datoscandidato"].'");';
 	$Db = db::getInstance();
 	$Db -> Ejecutar($sentencia);
 }
@@ -31,8 +31,8 @@ function borraOferta($cod){
 	$Db -> Ejecutar($sentencia);
 }
 
-function modificaOferta($id, $descripcion, $persona_contacto, $telefono, $email, $direccion, $poblacion, $codigo_postal, $provincia, $estado, $fecha_com, $psicologo, $candidato, $otros_datos_candidato){
-	$sentencia = 'UPDATE oferta SET descripcion="'.$descripcion.'", persona_contacto="'.$persona_contacto.'", telefono="'.$telefono.'", email="'.$email.'", direccion="'.$direccion.'", poblacion="'.$poblacion.'", codigo_postal="'.$codigo_postal.'", provincia="'.$provincia.'", estado="'.$estado.'", fecha_com="'.$fecha_com.'", psicologo="'.$psicologo.'", candidato="'.$candidato.'", otros_datos_candidato="'.$otros_datos_candidato.'" WHERE id = "'.$id.'";';
+function modificaOferta($id, $datos){
+	$sentencia = 'UPDATE oferta SET descripcion="'.$datos["descripcion"].'", persona_contacto="'.$datos["perscont"].'", telefono="'.$datos["tlfnocont"].'", email="'.$datos["email"].'", direccion="'.$datos["direccion"].'", poblacion="'.$datos["poblacion"].'", codigo_postal="'.$datos["codpostal"].'", provincia="'.$datos["provincia"].'", estado="'.$datos["estado"].'", fecha_com="'.$datos["fechacom"].'", psicologo="'.$datos["psicologo"].'", candidato="'.$datos["candidato"].'", otros_datos_candidato="'.$datos["datoscandidato"].'" WHERE id = "'.$id.'";';
 	$Db = db::getInstance();
 	$Db -> Ejecutar($sentencia);
 }

@@ -3,6 +3,11 @@
 function CreaSelect($name, $opciones, $valorDefecto='')
 {
 	$html="\n".'<select name="'.$name.'" class="form-control">';
+	if ($valorDefecto="")
+		$select='selected="selected"';
+	else
+		$select="";
+	$html.= "\n\t<option value=\"\" $select>----</option>";
 	foreach($opciones as $value=>$text)
 	{
 		if ($value==$valorDefecto)

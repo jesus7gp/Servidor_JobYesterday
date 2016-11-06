@@ -17,23 +17,28 @@
 	$rsProvincias = selectProvincias();
 	?>
 	<div class="container">
+	<?php 
+		if ($errores){
+			echo '<div class="alert alert-danger" role="alert">'.$strErrores.'</div>';
+		}
+	?>
 	<h1>Modificar oferta</h1>
 	<FORM ACTION="" METHOD="POST">
 
 		<fieldset class="form-group">
-			<label for="">Descripción:</label>
+			<label for="">Descripción*:</label>
 			<input type="text" name="descripcion" class="form-control" value="<?=VP('descripcion',$reg["descripcion"])?>"><br>
 		</fieldset>
 		<fieldset class="form-group">
-			<label for="">Persona de contacto</label>
+			<label for="">Persona de contacto*:</label>
 			<input type="text" name="perscont" class="form-control" value="<?=VP('perscont',$reg["persona_contacto"])?>"><br>
 		</fieldset>
 		<fieldset class="form-group">
-			<label for="">Teléfono de contacto:</label>
-			<input type="text" name="tlfnocont" class="form-control" value="<?=VP('tlfnocont',$reg["telefono"])?>"><br>
+			<label for="">Teléfono de contacto*:</label>
+			<input type="text" placeholder="XXX-XXX-XXX" name="tlfnocont" class="form-control" value="<?=VP('tlfnocont',$reg["telefono"])?>"><br>
 		</fieldset>
 		<fieldset class="form-group">
-			<label for="">Correo electrónico:</label>
+			<label for="">Correo electrónico*:</label>
 			<input type="text" name="email" class="form-control" value="<?=VP('email',$reg["email"])?>"><br>
 		</fieldset>
 		<fieldset class="form-group">
@@ -59,8 +64,8 @@
 			<br>
 		</fieldset>
 		<fieldset class="form-group">
-			<label for="">Fecha de comunicación:</label>
-			<input type="text" name="fechacom" class="form-control" value="<?=VP('fechacom',$reg["fecha_com"])?>"><br>
+			<label for="">Fecha de comunicación*:</label>
+			<input type="text" placeholder="AAAA-MM-DD" name="fechacom" class="form-control" value="<?=VP('fechacom',$reg["fecha_com"])?>"><br>
 		</fieldset>
 		<fieldset class="form-group">
 			<label for="">Psicólogo encargado:</label>
@@ -80,6 +85,7 @@
 		<input class="btn btn-default" name="mod" type="submit" value="Cancelar">
 	</FORM>
 	<br><br>
+	<div class="alert alert-success" role="alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><b>	IMPORTANTE: </b>Los campos marcados con un * son obligatorios.</div>
 	<br><br>
 	<br><br>
 	</div>

@@ -14,11 +14,11 @@
 </head>
 <body>
 	<div class="container">
-	<div class="jumbotron" id="jumbo1">
-		<h1><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>
-JobYesterday</h1>
-		<p>Ofertas de empleo</p>
-	</div>
+		<div class="jumbotron" id="jumbo1">
+			<h1><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>
+				JobYesterday</h1>
+				<p>Ofertas de empleo</p>
+		</div>
 	<div class="row">
 		<div class="col-md-6">
 			<?php
@@ -51,6 +51,7 @@ JobYesterday</h1>
 			</tr>
 		</tfoot>
 	</table>
+		
 	<?php 
 	if ($total_paginas > 1){
 	//Esto controla que no se avance ni retroceda más de lo conveniente. 
