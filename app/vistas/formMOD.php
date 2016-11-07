@@ -19,7 +19,7 @@
 	<div class="container">
 	<?php 
 		if ($errores){
-			echo '<div class="alert alert-danger" role="alert">'.$strErrores.'</div>';
+			echo '<div class="alert alert-danger" role="alert"><b>¡ERROR! No se pudo enviar el formulario.</b><br>'.$strErrores.'</div>';
 		}
 	?>
 	<h1>Modificar oferta</h1>
@@ -85,7 +85,7 @@
 		<input class="btn btn-default" name="mod" type="submit" value="Cancelar">
 	</FORM>
 	<br><br>
-	<div class="alert alert-success" role="alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><b>	IMPORTANTE: </b>Los campos marcados con un * son obligatorios.</div>
+	<div class="alert alert-info" role="alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><b>	IMPORTANTE: </b>Los campos marcados con un * son obligatorios.</div>
 	<br><br>
 	<br><br>
 	</div>

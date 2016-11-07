@@ -29,6 +29,12 @@
 		</div>
 		<div class="col-md-6">
 			<!--BUSCAR-->
+			<div class="input-group">
+				<input type="text" class="form-control">
+				<span class="input-group-btn">
+				<button class="btn btn-primary" type="button"><i class="fa fa-search" aria-hidden="true"></i>	¡Buscar!</button>
+				</span>
+			</div>
 		</div>
 	</div>
 	<table class="table table-striped">

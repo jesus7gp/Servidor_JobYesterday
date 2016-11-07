@@ -33,27 +33,28 @@ else
 	if ($_POST['mod'] == "Guardar cambios"){
     	
 		if($datosForm["descripcion"] == ""){
-			$strErrores .= "Introduzca una descripción.<br>";
+			$strErrores .= "<i class='fa fa-times-circle' aria-hidden='true'></i>
+	Introduzca una descripción.<br>";
 			$errores = true;
 		}
 		if($datosForm["perscont"] == ""){
-			$strErrores .= "Introduzca una persona de contacto.<br>";
+			$strErrores .= "<i class='fa fa-times-circle' aria-hidden='true'></i>	Introduzca una persona de contacto.<br>";
 			$errores = true;
 		}
 		if(hayErrorTelefono($datosForm["tlfnocont"])){
-			$strErrores .= "Introduzca una número de teléfono válido.<br>";
+			$strErrores .= "<i class='fa fa-times-circle' aria-hidden='true'></i>	Introduzca una número de teléfono válido.<br>";
 			$errores = true;
 		}
 		if(hayErrorEmail($datosForm["email"])){
-			$strErrores .= "Introduzca una correo electrónico válido.<br>";
+			$strErrores .= "<i class='fa fa-times-circle' aria-hidden='true'></i>	Introduzca una correo electrónico válido.<br>";
 			$errores = true;
 		}
 		if(hayErrorCodPostal($datosForm["codpostal"])){
-			$strErrores .= "Introduzca un código postal válido.<br>";
+			$strErrores .= "<i class='fa fa-times-circle' aria-hidden='true'></i>	Introduzca un código postal válido.<br>";
 			$errores = true;
 		}
 		if(hayErrorFecha($datosForm["fechacom"])){
-			$strErrores .= "Introduzca una fecha de comunicación válida.<br>";
+			$strErrores .= "<i class='fa fa-times-circle' aria-hidden='true'></i>	Introduzca una fecha de comunicación válida.<br>";
 			$errores = true;
 		}
 
