@@ -2,12 +2,8 @@
 
 function CreaSelect($name, $opciones, $valorDefecto='')
 {
-	$html="\n".'<select name="'.$name.'" class="form-control">';
-	if ($valorDefecto="")
-		$select='selected="selected"';
-	else
-		$select="";
-	$html.= "\n\t<option value=\"\" $select>----</option>";
+	$html="\n".'<select name="'.$name.'" class="custom-select">';
+	
 	foreach($opciones as $value=>$text)
 	{
 		if ($value==$valorDefecto)
@@ -50,11 +46,11 @@ function muestraOfertas($result){
 			echo '<td>'.$registro['telefono'].'</td>';
 			echo '<td>'.$registro['email'].'</td>';
 			echo '<td>'.stringFecha($registro['fecha_crea']).'</td>';
-			echo '<td><FORM ACTION="../controladores/modOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="modificar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+			echo '<td><FORM ACTION="../controladores/ctrl_EDITAR.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="modificar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
 </button></FORM></td>';
-			echo '<td><FORM ACTION="../controladores/borraOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i>
+			echo '<td><FORM ACTION="../controladores/ctrl_BORRAR.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i>
 </button></FORM></td>';
-			echo '<td><FORM ACTION="../controladores/infoOferta.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="info"><i class="fa fa-info-circle" aria-hidden="true"></i>
+			echo '<td><FORM ACTION="../controladores/ctrl_INFO.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="info"><i class="fa fa-info-circle" aria-hidden="true"></i>
 </button></FORM></td>';
 		echo '</tr>';
 	}

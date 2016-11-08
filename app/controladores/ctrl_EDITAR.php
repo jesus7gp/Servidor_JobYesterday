@@ -5,7 +5,7 @@ include_once 'filtrado.php';
 if (! $_POST){
 	$errores = false;
 	$reg = eligeOferta($_GET['id']);
-	include_once "../vistas/formMOD.php";
+	include_once "../vistas/vista_EDITAR.php";
 }
 else
 {
@@ -60,17 +60,17 @@ else
 
 		if($errores == true){
 			$reg = eligeOferta($id);
-			include_once "../vistas/formMOD.php";
+			include_once "../vistas/vista_EDITAR.php";
 		}
 		else{
 
 			modificaOferta($id, $datosForm);
-			header('Location: muestraOfertas.php'); 
+			header('Location: ctrl_MOSTRAR.php'); 
 			
 		}
 	}
 	else{
-		header('Location: muestraOfertas.php'); 
+		header('Location: ctrl_MOSTRAR.php'); 
 		
 	}
 }

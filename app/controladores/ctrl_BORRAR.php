@@ -4,7 +4,7 @@ include_once '../helpers/helpers.php';
 include_once 'filtrado.php';
 if (! $_POST){
 	$reg = eligeOferta($_GET['id']);
-	include_once "../vistas/formDEL.php";
+	include_once "../vistas/vista_BORRAR.php";
 	
 }
 else
@@ -12,10 +12,10 @@ else
 	if ($_POST['borrar'] == "Borrar"){
     	$id = $_POST['id'];
     	borraOferta($id);
-    	header('Location: muestraOfertas.php'); 
+    	header('Location: ctrl_MOSTRAR.php'); 
 	}
 	else{
-		header('Location: muestraOfertas.php'); 
+		header('Location: ctrl_MOSTRAR.php'); 
 		
 	}
 	

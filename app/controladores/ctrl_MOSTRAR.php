@@ -20,5 +20,5 @@ include_once 'filtrado.php';
         
     $resultado = ofertasPaginacion($inicio, $TAMANO_PAGINA);
 
-    require '../vistas/vista_muestraOfertas.php';
+    require '../vistas/vista_MOSTRAR.php';
 ?>

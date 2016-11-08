@@ -4,7 +4,7 @@ include_once '../helpers/helpers.php';
 include_once 'filtrado.php';
 if (! $_POST){
 	$errores = false;
-	include_once "../vistas/formularioadd.php";
+	include_once "../vistas/vista_GUARDAR.php";
 	
 }
 else
@@ -56,16 +56,16 @@ else
 		}
 
 		if($errores == true){
-			include "../vistas/formularioadd.php";
+			include "../vistas/vista_GUARDAR.php";
 		}
 		else{
 
 			insertaOferta($datosForm);
-			header('Location: muestraOfertas.php'); 
+			header('Location: ctrl_MOSTRAR.php'); 
 		}
 	}
 	else{
-		header('Location: muestraOfertas.php'); 
+		header('Location: ctrl_MOSTRAR.php'); 
 		
 	}
 }

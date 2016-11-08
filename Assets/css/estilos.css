@@ -1,4 +1,4 @@
-#jumbo1{
+.jumbo1{
 	background: #0275D8;
 	color:white;
 }
@@ -11,4 +11,8 @@ body{
 
 .tablaMuestra{
 	width: 220px!important;
+}
+
+.inputBuscar{
+	height: 56px;
 }

@@ -6,35 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous">
-	</script>
+	<link rel="stylesheet" href="../../Assets/css/bootstrap.min.css">
+	<script type="text/javascript" src="../../Assets/js/bootstrap.min.js"></script>
 	<link rel="stylesheet" href="../../Assets/css/font-awesome.min.css">
 	<link rel="stylesheet" href="../../Assets/css/estilos.css">
 </head>
 <body>
 	<div class="container">
-		<div class="jumbotron" id="jumbo1">
+		<div class="jumbotron jumbo1">
 			<h1><i class="fa fa-briefcase fa-2x" aria-hidden="true"></i>
 				JobYesterday</h1>
 				<p>Ofertas de empleo</p>
 		</div>
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-8">
 			<?php
 			echo "Número de registros encontrados: " . $num_total_registros . "<br>";
 			echo "Se muestran páginas de " . $TAMANO_PAGINA . " registros cada una<br>";
 			echo "Mostrando la página " . $pagina . " de " . $total_paginas . "<p>"; 
 			?>
 		</div>
-		<div class="col-md-6">
+		<div class="col-md-4">
 			<!--BUSCAR-->
-			<div class="input-group">
-				<input type="text" class="form-control">
-				<span class="input-group-btn">
-				<button class="btn btn-primary" type="button"><i class="fa fa-search" aria-hidden="true"></i>	¡Buscar!</button>
-				</span>
-			</div>
+			<FORM ACTION="../controladores/ctrl_BUSCAR.php" METHOD="GET">
+				<button class="btn btn-primary btn-lg"><i class="fa fa-search" aria-hidden="true"></i>	Realizar búsqueda detallada</button>			
+			</FORM>
 		</div>
 	</div>
 	<table class="table table-striped">
@@ -53,7 +49,7 @@
 		</tbody>
 		<tfoot>
 			<tr>
-				<th colspan="8"><a href="../controladores/guardaOferta.php">+ Insertar nueva oferta</a></th>
+				<th colspan="8"><a href="../controladores/ctrl_GUARDAR.php">+ Insertar nueva oferta</a></th>
 			</tr>
 		</tfoot>
 	</table>
@@ -76,18 +72,18 @@
 			$anterior = $pagina - 1;
 		}
 		echo "<ul class='pagination'>";
-		echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/muestraOfertas.php?pagina=" . 1 . "'>Primero</a></span></li>";
-		echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/muestraOfertas.php?pagina=" . $anterior . "'>Anterior</a></span></li>";
+		echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/ctrl_MOSTRAR.php?pagina=" . 1 . "'>Primero</a></span></li>";
+		echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/ctrl_MOSTRAR.php?pagina=" . $anterior . "'>Anterior</a></span></li>";
 		for ($i=1;$i<=$total_paginas;$i++){
 			if ($pagina == $i)
           //si muestro el índice de la página actual, no coloco enlace
 				echo "<li class='page-item active'><span aria-hidden='true'><a class='page-link' href=''>" . $pagina . "</a></span></li>";
 			else
           //si el índice no corresponde con la página mostrada actualmente, coloco el enlace para ir a esa página
-				echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/muestraOfertas.php?pagina=" . $i . "'>" . $i . "</a></span></li>";
+				echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/ctrl_MOSTRAR.php?pagina=" . $i . "'>" . $i . "</a></span></li>";
 		}
-		echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/muestraOfertas.php?pagina=" . $siguiente . "'>Siguiente</a></span></li>";
-		echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/muestraOfertas.php?pagina=" . $total_paginas . "'>Último</a></span></li>";
+		echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/ctrl_MOSTRAR.php?pagina=" . $siguiente . "'>Siguiente</a></span></li>";
+		echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='http://localhost/Servidor_JobYesterday/app/controladores/ctrl_MOSTRAR.php?pagina=" . $total_paginas . "'>Último</a></span></li>";
 		echo "</ul>";
 	}
 	?>
