@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="../../Assets/css/bootstrap.min.css">
-	<script type="text/javascript" src="../../Assets/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="../../Assets/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../../Assets/css/estilos.css">
-</head>
-<body>
-	<?php
-	include_once '../modelos/funciones.php';
-	$rsProvincias = selectProvincias();
-	?>
+
 	<div class="container">
+	<br>
 	<?php 
 		if ($errores){
 			echo '<div class="alert alert-danger" role="alert"><b>¡ERROR! No se pudo enviar el formulario.</b><br>'.$strErrores.'</div>';
 		}
 	?>
-	<h1>Modificar oferta</h1>
+	<h1>Modificar oferta</h1><br>
 	<FORM ACTION="" METHOD="POST">
 
 		<fieldset class="form-group">
@@ -81,12 +66,11 @@
 
 		<input type="hidden" name="id" value="<?= $reg['id'] ?> ">
 		<input class="btn btn-primary" name="mod" type="submit" value="Guardar cambios">
-		<input class="btn btn-default" name="mod" type="submit" value="Cancelar">
+		<a class="btn btn-secondary" href="?ctrl_MOSTRAR">Cancelar</a>
 	</FORM>
 	<br><br>
 	<div class="alert alert-info" role="alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><b>	IMPORTANTE: </b>Los campos marcados con un * son obligatorios.</div>
 	<br><br>
 	<br><br>
 	</div>
-</body>
-</html>
+

@@ -1,18 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="../../Assets/css/bootstrap.min.css">
-	<script type="text/javascript" src="../../Assets/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="../../Assets/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../../Assets/css/estilos.css">
-</head>
-<body>
+
 	<div class="container">
-	<h1>Información completa</h1>
+	<br>
+	<h1>Información completa</h1><br>
 	<table class="table table-striped">
 		<tr><th class="tablaMuestra">Descripción:</th><td> <?php echo $reg['descripcion']?></td></tr>
 		<tr><th class="tablaMuestra">Persona de contacto:</th><td> <?php echo $reg['persona_contacto']?></td></tr>
@@ -29,12 +18,8 @@
 		<tr><th class="tablaMuestra">Candidato seleccionado:</th><td> <?php echo $reg['candidato']?></td></tr>
 		<tr><th class="tablaMuestra">Otros datos candidato:</th><td> <?php echo $reg['otros_datos_candidato']?></td></tr>
 	</table>
-	<FORM ACTION="" METHOD="POST">
-		<input class="btn btn-default" name="volver" type="submit" value="Volver">
-	</FORM>
+	<a class="btn btn-secondary" href="?ctrl_MOSTRAR">Volver</a>
 	<br><br>
 	<br><br>
 	<br><br>
 	</div>
-</body>
-</html>

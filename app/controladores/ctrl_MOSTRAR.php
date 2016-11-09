@@ -1,7 +1,7 @@
 <?php 
-include_once '../modelos/funciones.php';
-include_once '../helpers/helpers.php';
-include_once 'filtrado.php';
+include_once MODEL_PATH.'funciones.php';
+include_once HELPERS_PATH.'helpers.php';
+include_once CTRL_PATH.'filtrado.php';
 
     $TAMANO_PAGINA = 10; 
 
@@ -20,5 +20,5 @@ include_once 'filtrado.php';
         
     $resultado = ofertasPaginacion($inicio, $TAMANO_PAGINA);
 
-    require '../vistas/vista_MOSTRAR.php';
+    include VIEW_PATH.'vista_MOSTRAR.php';
 ?>

@@ -39,20 +39,18 @@ function stringFecha($cadena){
 }
 
 function muestraOfertas($result){
-	while ($registro = mysqli_fetch_assoc($result)){
-		echo '<tr>';
-			echo '<td>'.$registro['descripcion'].'</td>';
-			echo '<td>'.$registro['persona_contacto'].'</td>';
-			echo '<td>'.$registro['telefono'].'</td>';
-			echo '<td>'.$registro['email'].'</td>';
-			echo '<td>'.stringFecha($registro['fecha_crea']).'</td>';
-			echo '<td><FORM ACTION="../controladores/ctrl_EDITAR.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="modificar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-</button></FORM></td>';
-			echo '<td><FORM ACTION="../controladores/ctrl_BORRAR.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="eliminar"><i class="fa fa-trash-o" aria-hidden="true"></i>
-</button></FORM></td>';
-			echo '<td><FORM ACTION="../controladores/ctrl_INFO.php" METHOD="GET"><input type="hidden" name="id" value="'.$registro['id'].'"><button class="btn btn-primary" name="info"><i class="fa fa-info-circle" aria-hidden="true"></i>
-</button></FORM></td>';
-		echo '</tr>';
+	foreach($result as $registro){
+		?><tr>
+			<td><?=$registro['descripcion']?></td>
+			<td><?=$registro['persona_contacto']?></td>
+			<td><?=$registro['telefono']?></td>
+			<td><?=$registro['email']?></td>
+			<td><?=stringFecha($registro['fecha_crea'])?></td>
+			<td><a class="btn btn-success editar" href="?ctrl=ctrl_EDITAR&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+			<td><a class="btn btn-danger borrar" href="?ctrl=ctrl_BORRAR&id=<?=$registro['id']?>"><i class="fa fa-trash-o" aria-hidden="true"></i></td>
+			<td><a class="btn btn-info info" href="?ctrl=ctrl_INFO&id=<?=$registro['id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i></td>
+		</tr>
+	<?php
 	}
 }
 

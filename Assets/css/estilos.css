@@ -1,12 +1,13 @@
 .jumbo1{
-	background: #0275D8;
+	/*background: #0275D8;*/
+	background: #005F6B;
 	color:white;
 }
 .container{
 	background: white;
 }
 body{
-	background: #373A3C;
+	background: #F2F2F2;
 }
 
 .tablaMuestra{
@@ -16,3 +17,89 @@ body{
 .inputBuscar{
 	height: 56px;
 }
+
+#botonnuevo{
+	width: 100%;
+	font-size: 20px;
+}
+
+#botonirbusqueda{
+	width: 100%;
+	font-size: 18px;
+}
+
+#encabezado{
+	background: #343838!important;
+	border-radius: 0;
+}
+footer{
+	background: #343838!important;
+	border-radius: 0;
+}
+#pie{
+	background: #343838;
+}
+.btn-primary{
+	background: #005F6B;
+	border-color: #005F6B;
+}
+.btn-primary:hover{
+	background: #343838;
+	border-color: : #343838;
+}
+.btn-primary:active{
+	background: #444848 !important;
+	border-color: : #444848 !important;
+}
+
+#jumboPrincipal{
+	background: #005F6B;
+}
+
+.btn-link{
+	color: #00B4CC;
+}
+
+
+.page-link{
+	color: #00B4CC;
+}
+.active a{
+	background: #005F6B !important;
+}
+.editar{
+	background: #64DBB3;
+	border-color: #64DBB3;
+}
+.editar:hover{
+	background: #4AD38A;
+	border-color: #4AD38A;
+}
+.editar:active{
+	background: #5AE39A!important;
+	border-color: #5AE39A!important;
+}
+.borrar{
+	background: #F25754;
+	border-color: #F25754;
+}
+.borrar:hover{
+	background: #BF2B2E;
+	border-color: #BF2B2E;
+}
+/*.borrar:active{
+	background: #BF2B2E!important;
+	border-color: #BF2B2E!important;
+}*/
+.info{
+	background: #00B4CC;
+	border-color: #00B4CC;
+}
+.info:hover{
+	background: #008C9E;
+	border-color: : #008C9E;
+}
+/*.info:active{
+	background: #008C9E!important;
+	border-color: : #008C9E!important;
+}*/

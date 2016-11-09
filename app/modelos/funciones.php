@@ -1,5 +1,5 @@
 <?php
-include 'claseBBDD.php';
+include MODEL_PATH.'claseBBDD.php';
 function selectProvincias(){
 	$Db = db::getInstance();
 	$Db -> Consulta("SELECT id, nombre FROM tbl_provincias");

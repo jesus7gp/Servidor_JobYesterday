@@ -1,11 +1,12 @@
 <?php
-include_once '../modelos/funciones.php';
-include_once '../helpers/helpers.php';
-include_once 'filtrado.php';
+include_once MODEL_PATH.'funciones.php';
+include_once HELPERS_PATH.'helpers.php';
+include_once CTRL_PATH.'filtrado.php';
+$rsProvincias = selectProvincias();
 if (! $_POST){
 	$errores = false;
 	$reg = eligeOferta($_GET['id']);
-	include_once "../vistas/vista_EDITAR.php";
+	include_once VIEW_PATH."vista_EDITAR.php";
 }
 else
 {
@@ -27,11 +28,7 @@ else
 		"datoscandidato" => $_POST['datoscandidato'],
 	);
 	
-	
-
-
-	if ($_POST['mod'] == "Guardar cambios"){
-    	
+    	//FILTRADO DE CAMPOS	
 		if($datosForm["descripcion"] == ""){
 			$strErrores .= "<i class='fa fa-times-circle' aria-hidden='true'></i>
 	Introduzca una descripción.<br>";
@@ -58,20 +55,19 @@ else
 			$errores = true;
 		}
 
+
+
+
+
 		if($errores == true){
 			$reg = eligeOferta($id);
-			include_once "../vistas/vista_EDITAR.php";
+			include_once VIEW_PATH."vista_EDITAR.php";
 		}
 		else{
 
 			modificaOferta($id, $datosForm);
-			header('Location: ctrl_MOSTRAR.php'); 
-			
+			header('Location: ?ctrl_MOSTRAR');
 		}
-	}
-	else{
-		header('Location: ctrl_MOSTRAR.php'); 
-		
-	}
+	
 }
 ?>

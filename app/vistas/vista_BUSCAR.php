@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="../../Assets/css/bootstrap.min.css">
-	<script type="text/javascript" src="../../Assets/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="../../Assets/css/font-awesome.min.css">
-	<link rel="stylesheet" href="../../Assets/css/estilos.css">
-</head>
-<body>
+
 	<div class="container">
+		<br>
 		<div class="jumbotron jumbo1">
-		<h1><i class="fa fa-search fa-2x" aria-hidden="true"></i>	Realizar búsqueda detallada</h1>
+		<h1>Búsqueda detallada</h1>
 		</div>
 		<br>
 		<FORM ACTION="" METHOD="POST">
@@ -47,8 +36,8 @@
 		</fieldset>
 		
 		<br><br>
-		<input class="btn btn-primary" name="buscar" type="submit" value="¡Buscar!">
-		<input class="btn btn-default" name="buscar" type="submit" value="Cancelar">
+		<button class="btn btn-primary" name="buscar" type="submit"><i class="fa fa-search" aria-hidden="true"></i>	¡Buscar!</button>
+		<a class="btn btn-secondary" href="?ctrl_MOSTRAR">Volver</a>
 	</FORM>
 	<br><br><br><br>
 
@@ -72,5 +61,3 @@
 	<br><br>
 	<br><br>
 	</div>
-</body>
-</html>
