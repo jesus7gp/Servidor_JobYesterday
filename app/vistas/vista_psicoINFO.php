@@ -17,7 +17,7 @@
 	<tr><th class="tablaMuestra">Candidato seleccionado:</th><td> <?php echo $reg['candidato']?></td></tr>
 	<tr><th class="tablaMuestra">Otros datos candidato:</th><td> <?php echo $reg['otros_datos_candidato']?></td></tr>
 </table>
-<a class="btn btn-secondary" href="?ctrl=ctrl_MOSTRAR">Volver</a>
+<a class="btn btn-secondary" href="?ctrl=ctrl_psicoMOSTRAR">Volver</a>
 <br><br>
 <br><br>
 <br><br>

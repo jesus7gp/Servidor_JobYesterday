@@ -10,9 +10,9 @@ define('HELPERS_PATH', __DIR__.'/helpers/');
 // Usamos constantes por comodidad
 
 
+session_start();
 
-
-$accion = isset($_GET['ctrl']) ? $_GET['ctrl'] : 'ctrl_MOSTRAR';
+$accion = isset($_GET['ctrl']) ? $_GET['ctrl'] : 'ctrl_LOGIN';
 ?>
 <!DOCTYPE html>
 <html>

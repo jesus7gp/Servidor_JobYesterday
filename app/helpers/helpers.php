@@ -54,4 +54,19 @@ function muestraOfertas($result){
 	}
 }
 
+function muestraOfertasPsico($result){
+	foreach($result as $registro){
+		?><tr>
+			<td><?=$registro['descripcion']?></td>
+			<td><?=$registro['persona_contacto']?></td>
+			<td><?=$registro['telefono']?></td>
+			<td><?=$registro['email']?></td>
+			<td><?=stringFecha($registro['fecha_crea'])?></td>
+			<td><a class="btn btn-success editar" href="?ctrl=ctrl_ESTADO&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+			<td><a class="btn btn-info info" href="?ctrl=ctrl_psicoINFO&id=<?=$registro['id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i></td>
+		</tr>
+	<?php
+	}
+}
+
 ?>

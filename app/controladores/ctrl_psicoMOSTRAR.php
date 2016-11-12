@@ -1,5 +1,5 @@
 <?php 
-if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
+if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Psicólogo"){
     include_once MODEL_PATH.'funciones.php';
     include_once HELPERS_PATH.'helpers.php';
     include_once CTRL_PATH.'filtrado.php';
@@ -21,7 +21,7 @@ if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
     
     $resultado = ofertasPaginacion($inicio, $TAMANO_PAGINA);
 
-    include VIEW_PATH.'vista_MOSTRAR.php';
+    include VIEW_PATH.'vista_psicoMOSTRAR.php';
 }
 else{
     header('Location: ?ctrl=logout');

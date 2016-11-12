@@ -36,7 +36,7 @@
 	
 	<br><br>
 	<button class="btn btn-primary" name="buscar" type="submit"><i class="fa fa-search" aria-hidden="true"></i>	¡Buscar!</button>
-	<a class="btn btn-secondary" href="?ctrl=ctrl_MOSTRAR">Volver</a>
+	<a class="btn btn-secondary" href="?ctrl=ctrl_psicoMOSTRAR">Volver</a>
 </FORM>
 <br><br><br><br>
 
@@ -48,7 +48,7 @@
 			<th>Nº teléfono</th>
 			<th>E-Mail</th>
 			<th>Fecha de creación</th>
-			<th colspan="3"></th>
+			<th colspan="2"></th>
 		</tr>
 	</thead>
 	<tbody>

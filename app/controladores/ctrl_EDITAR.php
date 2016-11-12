@@ -1,37 +1,38 @@
 <?php
-include_once MODEL_PATH.'funciones.php';
-include_once HELPERS_PATH.'helpers.php';
-include_once CTRL_PATH.'filtrado.php';
-$rsProvincias = selectProvincias();
-if (! $_POST){
-	$errores = false;
-	$reg = eligeOferta($_GET['id']);
-	include_once VIEW_PATH."vista_EDITAR.php";
-}
-else
-{
-	$strErrores="";
-	$id = $_POST['id'];
-	@$datosForm = array(
-		"descripcion" => $_POST['descripcion'],
-		"perscont" => $_POST['perscont'],
-		"tlfnocont" => $_POST['tlfnocont'],
-		"email" => $_POST['email'],
-		"direccion" => $_POST['direccion'],
-		"poblacion" => $_POST['poblacion'],
-		"codpostal" => $_POST['codpostal'],
-		"provincia" => $_POST['provincia'],
-		"estado" => $_POST['estado'],
-		"fechacom" => $_POST['fechacom'],
-		"psicologo" => $_POST['psicologo'],
-		"candidato" => $_POST['candidato'],
-		"datoscandidato" => $_POST['datoscandidato'],
-	);
-	
+if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
+	include_once MODEL_PATH.'funciones.php';
+	include_once HELPERS_PATH.'helpers.php';
+	include_once CTRL_PATH.'filtrado.php';
+	$rsProvincias = selectProvincias();
+	if (! $_POST){
+		$errores = false;
+		$reg = eligeOferta($_GET['id']);
+		include_once VIEW_PATH."vista_EDITAR.php";
+	}
+	else
+	{
+		$strErrores="";
+		$id = $_POST['id'];
+		@$datosForm = array(
+			"descripcion" => $_POST['descripcion'],
+			"perscont" => $_POST['perscont'],
+			"tlfnocont" => $_POST['tlfnocont'],
+			"email" => $_POST['email'],
+			"direccion" => $_POST['direccion'],
+			"poblacion" => $_POST['poblacion'],
+			"codpostal" => $_POST['codpostal'],
+			"provincia" => $_POST['provincia'],
+			"estado" => $_POST['estado'],
+			"fechacom" => $_POST['fechacom'],
+			"psicologo" => $_POST['psicologo'],
+			"candidato" => $_POST['candidato'],
+			"datoscandidato" => $_POST['datoscandidato'],
+			);
+		
     	//FILTRADO DE CAMPOS	
 		if($datosForm["descripcion"] == ""){
 			$strErrores .= "<i class='fa fa-times-circle' aria-hidden='true'></i>
-	Introduzca una descripción.<br>";
+			Introduzca una descripción.<br>";
 			$errores = true;
 		}
 		if($datosForm["perscont"] == ""){
@@ -66,8 +67,12 @@ else
 		else{
 
 			modificaOferta($id, $datosForm);
-			header('Location: ?ctrl_MOSTRAR');
+			header('Location: ?ctrl=ctrl_MOSTRAR');
 		}
-	
+		
+	}
+}
+else{
+	header('Location: ?ctrl=logout');
 }
 ?>

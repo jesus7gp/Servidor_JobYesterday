@@ -3,8 +3,19 @@
 	background: #005F6B;
 	color:white;
 }
+.sesion{
+	width: 100%;
+}
+
+#login{
+	background: rgba(0,0,0,0);
+}
+
 .container{
 	background: white;
+}
+#login{
+	height: 150%;
 }
 body{
 	background: #F2F2F2;
@@ -32,12 +43,10 @@ body{
 	background: #343838!important;
 	border-radius: 0;
 }
-footer{
-	background: #343838!important;
-	border-radius: 0;
-}
+
+
 #pie{
-	background: #343838;
+	background: #F2F2F2;
 }
 .btn-primary{
 	background: #005F6B;

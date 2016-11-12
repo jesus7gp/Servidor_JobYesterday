@@ -21,7 +21,7 @@
 	<FORM ACTION="" METHOD="POST">
 		<input type="hidden" name="id" value="<?= $reg['id'] ?> ">
 		<input class="btn btn-primary" name="borrar" type="submit" value="Borrar">
-		<a class="btn btn-secondary" href="?ctrl_MOSTRAR">Cancelar</a>
+		<a class="btn btn-secondary" href="?ctrl=ctrl_MOSTRAR">Cancelar</a>
 	</FORM>
 	<br><br>
 	<br><br>

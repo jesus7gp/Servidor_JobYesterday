@@ -37,6 +37,12 @@ function modificaOferta($id, $datos){
 	$Db -> Ejecutar($sentencia);
 }
 
+function cambiaEstado($id, $estado){
+	$sentencia = 'UPDATE oferta SET estado="'.$estado.'" WHERE id = "'.$id.'";';
+	$Db = db::getInstance();
+	$Db -> Ejecutar($sentencia);
+}
+
 function ofertasPaginacion($inicio, $tam){
     $sentencia = "SELECT * FROM oferta ORDER BY fecha_crea DESC LIMIT ".$inicio.",".$tam;
 
@@ -50,4 +56,13 @@ function numOfertas(){
     $Db = db::getInstance();
     $rs = $Db->Consulta($sentencia);
     return mysqli_num_rows($rs);
+}
+
+function consultaUsuario($nombre, $clave){
+	$sentencia = "SELECT * FROM usuario WHERE nombre = '".$nombre."' AND clave = '".$clave."'";
+    
+    $Db = db::getInstance();
+    $rs = $Db->Consulta($sentencia);
+    
+    return mysqli_fetch_array($rs);
 }

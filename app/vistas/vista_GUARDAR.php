@@ -65,7 +65,7 @@
 		</fieldset>
 
 		<input class="btn btn-primary" name="add" type="submit" value="Inserta oferta">
-		<a class="btn btn-secondary" href="?ctrl_MOSTRAR">Cancelar</a>
+		<a class="btn btn-secondary" href="?ctrl=ctrl_MOSTRAR">Cancelar</a>
 	</FORM>
 	<br><br>
 	<div class="alert alert-info" role="alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><b>	IMPORTANTE: </b>Los campos marcados con un * son obligatorios.</div>
