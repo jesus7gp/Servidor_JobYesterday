@@ -11,9 +11,8 @@ define('HELPERS_PATH', __DIR__.'/helpers/');
 
 
 session_start();
-
-$accion = isset($_GET['ctrl']) ? $_GET['ctrl'] : 'ctrl_LOGIN';
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,6 +29,7 @@ $accion = isset($_GET['ctrl']) ? $_GET['ctrl'] : 'ctrl_LOGIN';
 <?php
 include (TEMPLATE_PATH.'header.php');
 // Nombre del fichero a incluir
+$accion = isset($_GET['ctrl']) ? $_GET['ctrl'] : 'ctrl_LOGIN';
 $ctrl=CTRL_PATH.$accion.'.php';
 if (file_exists($ctrl))
 {

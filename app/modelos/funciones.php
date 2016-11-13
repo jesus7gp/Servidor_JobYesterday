@@ -66,3 +66,19 @@ function consultaUsuario($nombre, $clave){
     
     return mysqli_fetch_array($rs);
 }
+
+function ofertasBusqueda($inicio, $tam, $filtro){
+	$sentencia = "SELECT * FROM oferta WHERE ".$filtro." ORDER BY fecha_crea DESC LIMIT ".$inicio.",".$tam;
+
+	$Db = db::getInstance();
+    return $Db->Consulta($sentencia);
+}
+
+function numeroRegistros($filtro){
+	$sentencia = "SELECT * FROM oferta WHERE ".$filtro;
+
+	$Db = db::getInstance();
+    $rs = $Db->Consulta($sentencia);
+
+	return mysqli_num_rows($rs);
+}

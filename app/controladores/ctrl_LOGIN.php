@@ -6,6 +6,7 @@ $errores = false;
 $strErrores = "";
 if (! $_POST){
 	include_once VIEW_PATH."vista_LOGIN.php";
+	
 	if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
 		header('Location: ?ctrl=ctrl_MOSTRAR');
 	}
