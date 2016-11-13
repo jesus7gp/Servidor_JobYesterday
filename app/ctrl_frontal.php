@@ -37,7 +37,7 @@ if (file_exists($ctrl))
 }
 else
 {   // Error 404
-    include(VIEW_PATH.'error404.php');
+    include(VIEW_PATH.'eror404.php');
 }
 include (TEMPLATE_PATH.'footer.php');
 ?>
