@@ -67,7 +67,7 @@ if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
 		else{
 
 			insertaOferta($datosForm);
-			header('Location: ?ctrl_MOSTRAR'); 
+			header('Location: ?ctrl=ctrl_MOSTRAR'); 
 		}
 		
 	}

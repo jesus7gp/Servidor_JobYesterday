@@ -47,8 +47,8 @@ function muestraOfertas($result){
 			<td><?=$registro['email']?></td>
 			<td><?=stringFecha($registro['fecha_crea'])?></td>
 			<td><a class="btn btn-success editar" href="?ctrl=ctrl_EDITAR&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-			<td><a class="btn btn-danger borrar" href="?ctrl=ctrl_BORRAR&id=<?=$registro['id']?>"><i class="fa fa-trash-o" aria-hidden="true"></i></td>
-			<td><a class="btn btn-info info" href="?ctrl=ctrl_INFO&id=<?=$registro['id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i></td>
+			<td><a class="btn btn-danger borrar" href="?ctrl=ctrl_BORRAR&id=<?=$registro['id']?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
+			<td><a class="btn btn-info info" href="?ctrl=ctrl_INFO&id=<?=$registro['id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
 		</tr>
 	<?php
 	}
@@ -63,10 +63,21 @@ function muestraOfertasPsico($result){
 			<td><?=$registro['email']?></td>
 			<td><?=stringFecha($registro['fecha_crea'])?></td>
 			<td><a class="btn btn-success editar" href="?ctrl=ctrl_ESTADO&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-			<td><a class="btn btn-info info" href="?ctrl=ctrl_psicoINFO&id=<?=$registro['id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i></td>
+			<td><a class="btn btn-info info" href="?ctrl=ctrl_psicoINFO&id=<?=$registro['id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
 		</tr>
 	<?php
 	}
 }
 
+function muestraUsuarios($result){
+	foreach($result as $registro){
+		?><tr>
+			<td><?=$registro['nombre']?></td>
+			<td><?=$registro['clave']?></td>
+			<td><?=$registro['tipo']?></td>
+			<td><div class="btn-group" role="group"><a class="btn btn-success editar" href="?ctrl=ctrl_userEDITAR&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="btn btn-danger borrar" href="?ctrl=ctrl_userBORRAR&id=<?=$registro['id']?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div></td>
+		</tr>
+	<?php
+	}
+}
 ?>

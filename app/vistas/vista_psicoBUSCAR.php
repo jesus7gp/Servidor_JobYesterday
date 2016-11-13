@@ -41,7 +41,7 @@
 	
 	<br><br>
 	<button class="btn btn-primary" type="submit"><i class="fa fa-search" aria-hidden="true"></i>	¡Buscar!</button>
-	<a class="btn btn-secondary" href="?ctrl=ctrl_MOSTRAR">Volver</a>
+	<a class="btn btn-secondary" href="?ctrl=ctrl_psicoMOSTRAR">Volver</a>
 </FORM>
 <br><br><br><br>
 

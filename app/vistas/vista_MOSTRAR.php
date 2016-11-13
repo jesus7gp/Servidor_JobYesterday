@@ -13,7 +13,7 @@
 	<br>
 	
 <div class="row">
-	<div class="col-md-8">
+	<div class="col-md-4">
 		<?php
 		echo "Número de registros encontrados: " . $num_total_registros . "<br>";
 		echo "Se muestran páginas de " . $TAMANO_PAGINA . " registros cada una<br>";
@@ -25,6 +25,11 @@
 		
 		<a href="?ctrl=ctrl_BUSCAR" class="btn btn-primary" id="botonirbusqueda"><i class="fa fa-search" aria-hidden="true"></i>	Realizar búsqueda detallada</a>			
 		
+	</div>
+	<div class="col-md-4">
+		<a href="?ctrl=ctrl_USUARIOS" class="btn btn-primary" id="botonirbusqueda"><i class="fa fa-user-circle" aria-hidden="true"></i>
+	Gestión de usuarios</a>
+
 	</div>
 </div>
 <table class="table table-striped">

@@ -82,3 +82,45 @@ function numeroRegistros($filtro){
 
 	return mysqli_num_rows($rs);
 }
+
+function usuariosPaginacion($inicio, $tam){
+    $sentencia = "SELECT * FROM usuario LIMIT ".$inicio.",".$tam;
+
+	$Db = db::getInstance();
+    return $Db->Consulta($sentencia);
+}
+
+function numUsuarios(){
+    $sentencia = "SELECT * FROM usuario";
+    
+    $Db = db::getInstance();
+    $rs = $Db->Consulta($sentencia);
+    return mysqli_num_rows($rs);
+}
+
+function insertaUsuario($datos){
+	$sentencia = 'INSERT INTO usuario (nombre, clave, tipo)
+			VALUES ("'.$datos["nombre"].'", "'.$datos["clave"].'", "'.$datos["tipo"].'")';
+	$Db = db::getInstance();
+	$Db -> Ejecutar($sentencia);
+}
+
+function modificaUsuario($id, $datos){
+	$sentencia = 'UPDATE usuario SET nombre="'.$datos["nombre"].'", clave="'.$datos["clave"].'", tipo="'.$datos["tipo"].'" WHERE id = "'.$id.'"';
+	$Db = db::getInstance();
+	$Db -> Ejecutar($sentencia);
+}
+
+function eligeUsuario($cod){
+	$sentencia = 'SELECT * FROM usuario WHERE id = "'.$cod.'"';
+	$Db = db::getInstance();
+	$Db -> Consulta($sentencia);
+	$reg = $Db->LeeRegistro();
+	return $reg;
+}
+
+function borraUsuario($cod){
+	$sentencia = 'DELETE FROM usuario WHERE id = "'.$cod.'"';
+	$Db = db::getInstance();
+	$Db -> Ejecutar($sentencia);
+}
