@@ -38,46 +38,72 @@ function stringFecha($cadena){
 	return date_format($fecha, 'Y-m-d');
 }
 
-function muestraOfertas($result){
-	foreach($result as $registro){
-		?><tr>
-			<td><?=$registro['descripcion']?></td>
-			<td><?=$registro['persona_contacto']?></td>
-			<td><?=$registro['telefono']?></td>
-			<td><?=$registro['email']?></td>
-			<td><?=stringFecha($registro['fecha_crea'])?></td>
-			<td><a class="btn btn-success editar" href="?ctrl=ctrl_EDITAR&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-			<td><a class="btn btn-danger borrar" href="?ctrl=ctrl_BORRAR&id=<?=$registro['id']?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>
-			<td><a class="btn btn-info info" href="?ctrl=ctrl_INFO&id=<?=$registro['id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
-		</tr>
-	<?php
+function paginacion($controlador, $pagina, $total_paginas, $datos=null){
+	if (isset($total_paginas) && $total_paginas > 1){
+		if(isset($datos)){
+			$url = "&descripcion=".$datos['descripcion']."&persona=".$datos['persona']."&fecha=".$datos['fecha']."&combodescripcion=".$datos['combodescripcion']."&combopersona=".$datos['combopersona']."&combofecha=".$datos['combofecha'];
+		}
+		else{
+			$url = "";
+		}
+		
+
+		if($pagina+1 > $total_paginas){
+			$siguiente = $pagina;
+		}
+		else{
+			$siguiente = $pagina + 1;
+		}
+
+		if($pagina-1 == 0){
+			$anterior = $pagina;
+		}
+		else{
+			$anterior = $pagina - 1;
+		}
+
+		echo "<ul class='pagination'>";
+		if($pagina != 1){
+			echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=".$controlador."&pagina=1". $url ."'>Primero</a></span></li>";
+			echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=".$controlador."&pagina=" . $anterior . $url."'>Anterior</a></span></li>";
+		}
+		for ($i=1;$i<=$total_paginas;$i++){
+			if ($pagina == $i)
+      //si muestro el índice de la página actual, no coloco enlace
+				echo "<li class='page-item active'><span aria-hidden='true'><a class='page-link'>" . $pagina . "</a></span></li>";
+			else
+      //si el índice no corresponde con la página mostrada actualmente, coloco el enlace para ir a esa página
+				echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=".$controlador."&pagina=" . $i . $url."'>" . $i . "</a></span></li>";
+		}
+		if($pagina != $total_paginas){
+			echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=".$controlador."&pagina=" . $siguiente . $url."'>Siguiente</a></span></li>";
+			echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=".$controlador."&pagina=" . $total_paginas . $url."'>Último</a></span></li>";
+		}
+		echo "</ul>";
 	}
 }
 
-function muestraOfertasPsico($result){
-	foreach($result as $registro){
-		?><tr>
-			<td><?=$registro['descripcion']?></td>
-			<td><?=$registro['persona_contacto']?></td>
-			<td><?=$registro['telefono']?></td>
-			<td><?=$registro['email']?></td>
-			<td><?=stringFecha($registro['fecha_crea'])?></td>
-			<td><a class="btn btn-success editar" href="?ctrl=ctrl_ESTADO&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
-			<td><a class="btn btn-info info" href="?ctrl=ctrl_psicoINFO&id=<?=$registro['id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
-		</tr>
-	<?php
+function stringEstado($estado){
+	if($estado == "P"){
+		return "Pendiente de iniciar selección";
+	}
+	if($estado == "R"){
+		return "Realizando selección";
+	}
+	if($estado == "S"){
+		return "Seleccionado candidato";
+	}
+	if($estado == "C"){
+		return "Cancelada";
 	}
 }
 
-function muestraUsuarios($result){
-	foreach($result as $registro){
-		?><tr>
-			<td><?=$registro['nombre']?></td>
-			<td><?=$registro['clave']?></td>
-			<td><?=$registro['tipo']?></td>
-			<td><div class="btn-group" role="group"><a class="btn btn-success editar" href="?ctrl=ctrl_userEDITAR&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="btn btn-danger borrar" href="?ctrl=ctrl_userBORRAR&id=<?=$registro['id']?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div></td>
-		</tr>
-	<?php
+function stringTipoUsuario($tipo){
+	if($tipo == "a"){
+		return "Administrador";
+	}
+	if($tipo == "p"){
+		return "Psicólogo";
 	}
 }
 ?>

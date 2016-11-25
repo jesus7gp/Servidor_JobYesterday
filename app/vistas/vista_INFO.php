@@ -9,8 +9,8 @@
 	<tr><th class="tablaMuestra">Dirección:</th><td> <?php echo $reg['direccion']?></td></tr>
 	<tr><th class="tablaMuestra">Población:</th><td> <?php echo $reg['poblacion']?></td></tr>
 	<tr><th class="tablaMuestra">Código postal:</th><td> <?php echo $reg['codigo_postal']?></td></tr>
-	<tr><th class="tablaMuestra">Provincia:</th><td> <?php echo $reg['provincia']?></td></tr>
-	<tr><th class="tablaMuestra">Estado:</th><td> <?php echo $reg['estado']?></td></tr>
+	<tr><th class="tablaMuestra">Provincia:</th><td> <?php echo stringProvincia($reg['provincia'])?></td></tr>
+	<tr><th class="tablaMuestra">Estado:</th><td> <?php echo stringEstado($reg['estado'])?></td></tr>
 	<tr><th class="tablaMuestra">Fecha de creación:</th><td> <?php echo stringFecha($reg['fecha_crea'])?></td></tr>
 	<tr><th class="tablaMuestra">Fecha de comunicación:</th><td> <?php echo $reg['fecha_com']?></td></tr>
 	<tr><th class="tablaMuestra">Psicólogo encargado:</th><td> <?php echo $reg['psicologo']?></td></tr>

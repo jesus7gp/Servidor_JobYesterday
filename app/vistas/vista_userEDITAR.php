@@ -2,7 +2,7 @@
 <br>
 <?php 
 	if ($errores){
-		echo '<div class="alert alert-danger" role="alert"><b>¡ERROR! No se pudo enviar el formulario.</b><br>Todos los campos son obligatorios</div>';
+		echo '<div class="alert alert-danger" role="alert"><b>¡ERROR! No se pudo enviar el formulario.</b><br>'.$strErrores.'</div>';
 	}
 ?>
 <h1>Editar usuario</h1><br>

@@ -1,11 +1,13 @@
 <?php
 if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Psicólogo"){
-	include_once MODEL_PATH.'funciones.php';
+	include_once MODEL_PATH.'modelo_ofertas.php';
+	include_once MODEL_PATH.'modelo_usuarios.php';
+	include_once MODEL_PATH.'modelo_provincias.php';
 	include_once HELPERS_PATH.'helpers.php';
 	include_once CTRL_PATH.'filtrado.php';
 	$rsProvincias = selectProvincias();
+	$errores = false;
 	if (! $_POST){
-		$errores = false;
 		$reg = eligeOferta($_GET['id']);
 		include_once VIEW_PATH."vista_ESTADO.php";
 	}
@@ -14,6 +16,8 @@ if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Psicólogo"){
 		$strErrores="";
 		$id = $_POST['id'];
 		@$estado = $_POST['estado'];
+		$candidato = $_POST['candidato'];
+		$datos = $_POST['datoscandidato'];
 			
 		
     	//FILTRADO DE CAMPOS	
@@ -29,8 +33,9 @@ if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Psicólogo"){
 		}
 		else{
 
-			cambiaEstado($id, $estado);
-			header('Location: ?ctrl=ctrl_psicoMOSTRAR');
+			cambiaEstado($id, $estado, $candidato, $datos);
+			$strMensaje = "    Se ha modificado con éxito.";
+			include_once VIEW_PATH."vista_MENSAJE.php";
 		}
 		
 	}

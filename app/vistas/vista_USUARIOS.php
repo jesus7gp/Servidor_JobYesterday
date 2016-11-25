@@ -12,7 +12,15 @@
 		</tr>
 	</thead>
 	<tbody>
-		<?php muestraUsuarios($resultado); ?>
+		<?php foreach($resultado as $registro){ ?>
+		<tr>
+			<td><?=$registro['nombre']?></td>
+			<td><?=$registro['clave']?></td>
+			<td><?=stringTipoUsuario($registro['tipo'])?></td>
+			<td><div class="btn-toolbar" role="toolbar"><a class="btn btn-success editar" href="?ctrl=ctrl_userEDITAR&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a><a class="btn btn-danger borrar" href="?ctrl=ctrl_userBORRAR&id=<?=$registro['id']?>"><i class="fa fa-trash-o" aria-hidden="true"></i></a></div></td>
+		</tr>
+	<?php
+	}?>
 	</tbody>
 	<tfoot>
 		<tr>
@@ -23,39 +31,7 @@
 	</tfoot>
 </table>
 	
-<?php 
-if ($total_paginas > 1){
-//Esto controla que no se avance ni retroceda más de lo conveniente. 
-//RECOMENDABLE PASAR ESTA FUNCIONALIDAD A LA CARPETA CONTROLADORES
-	if($pagina+1 > $total_paginas){
-		$siguiente = $pagina;
-	}
-	else{
-		$siguiente = $pagina + 1;
-	}
-
-	if($pagina-1 == 0){
-		$anterior = $pagina;
-	}
-	else{
-		$anterior = $pagina - 1;
-	}
-	echo "<ul class='pagination'>";
-	echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_USUARIOS&pagina=" . 1 . "'>Primero</a></span></li>";
-	echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_USUARIOS&pagina=" . $anterior . "'>Anterior</a></span></li>";
-	for ($i=1;$i<=$total_paginas;$i++){
-		if ($pagina == $i)
-      //si muestro el índice de la página actual, no coloco enlace
-			echo "<li class='page-item active'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_USUARIOS&pagina='>" . $pagina . "</a></span></li>";
-		else
-      //si el índice no corresponde con la página mostrada actualmente, coloco el enlace para ir a esa página
-			echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_USUARIOS&pagina=" . $i . "'>" . $i . "</a></span></li>";
-	}
-	echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_USUARIOS&pagina=" . $siguiente . "'>Siguiente</a></span></li>";
-	echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_USUARIOS&pagina=" . $total_paginas . "'>Último</a></span></li>";
-	echo "</ul>";
-}
-?>
+<?php paginacion("ctrl_USUARIOS",$pagina, $total_paginas); ?>
 <br>
 <a class="btn btn-secondary" href="?ctrl=ctrl_MOSTRAR">Volver</a>
 <br>

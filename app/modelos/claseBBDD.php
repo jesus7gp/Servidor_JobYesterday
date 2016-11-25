@@ -1,17 +1,6 @@
 <?php
-
-$db_conf=array(
-		'servidor'=>'localhost',
-		'usuario'=>'root',
-		'password'=>'',
-		'base_datos'=>'ofertas'
-);
-
-
+include "config.php";
 Class Db {
-
-
-
 	private $link;
 	private $result;
 	private $regActual;

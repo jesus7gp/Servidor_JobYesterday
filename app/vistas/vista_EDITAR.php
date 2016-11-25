@@ -10,7 +10,8 @@
 
 	<fieldset class="form-group">
 		<label for="">Descripción*:</label>
-		<input type="text" name="descripcion" class="form-control" value="<?=VP('descripcion',$reg["descripcion"])?>"><br>
+		<!--<input type="text" name="descripcion" class="form-control" value="<?=VP('descripcion',$reg["descripcion"])?>"><br>-->
+		<textarea name="descripcion" class="form-control"><?=VP('descripcion',$reg["descripcion"])?></textarea><br>
 	</fieldset>
 	<fieldset class="form-group">
 		<label for="">Persona de contacto*:</label>

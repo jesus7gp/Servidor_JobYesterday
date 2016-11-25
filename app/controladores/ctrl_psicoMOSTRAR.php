@@ -1,10 +1,12 @@
 <?php 
 if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Psicólogo"){
-    include_once MODEL_PATH.'funciones.php';
+    include_once MODEL_PATH.'modelo_ofertas.php';
+    include_once MODEL_PATH.'modelo_usuarios.php';
+    include_once MODEL_PATH.'modelo_provincias.php';
     include_once HELPERS_PATH.'helpers.php';
     include_once CTRL_PATH.'filtrado.php';
 
-    $TAMANO_PAGINA = 10; 
+    $TAMANO_PAGINA = 5; 
 
     @$pagina = $_GET['pagina']; 
     if (!$pagina) { 

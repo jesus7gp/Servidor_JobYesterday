@@ -1,6 +1,8 @@
 <?php
 if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Psicólogo"){
-	include_once MODEL_PATH.'funciones.php';
+	include_once MODEL_PATH.'modelo_ofertas.php';
+	include_once MODEL_PATH.'modelo_usuarios.php';
+	include_once MODEL_PATH.'modelo_provincias.php';
 	include_once HELPERS_PATH.'helpers.php';
 	include_once CTRL_PATH.'filtrado.php';
 	$error = false;
@@ -13,52 +15,52 @@ if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Psicólogo"){
 		$consultas = array();
 		$errores = false;
 
-
-		$descripcion = $_GET['descripcion'];
-		$persona = $_GET['persona'];
-		$fecha = $_GET['fecha'];
-		$combodescripcion = $_GET['combodescripcion'];
-		$combopersona = $_GET['combopersona'];
-		$combofecha = $_GET['combofecha'];
-
-		if($descripcion==""&&$persona==""&&$fecha==""){
+		$datos = array(
+		"descripcion" => $_GET['descripcion'],
+		"persona" => $_GET['persona'],
+		"fecha" => $_GET['fecha'],
+		"combodescripcion" => $_GET['combodescripcion'],
+		"combopersona" => $_GET['combopersona'],
+		"combofecha" => $_GET['combofecha'],
+		);
+		if($datos['descripcion']=="" &&$datos['persona']=="" &&$datos['fecha']==""){
 			$error = true;
-			require VIEW_PATH.'vista_psicoBUSCAR.php';
+			require VIEW_PATH.'vista_BUSCAR.php';
 		}
 		else{
-			if($descripcion!=""){
-				if($combodescripcion=="LIKE"){
-					$consulta1 = "descripcion ".$combodescripcion." '%".$descripcion."%'";
+			if($datos['descripcion']!=""){
+				if($datos['combodescripcion']=="LIKE"){
+					$consulta1 = "descripcion ".$datos['combodescripcion']." '%".$datos['descripcion']."%'";
 				}
 				else{
-					$consulta1 = "descripcion ".$combodescripcion." '".$descripcion."'";
+					$consulta1 = "descripcion ".$datos['combodescripcion']." '".$datos['descripcion']."'";
 				}
 
 				array_push($consultas, $consulta1);
 			}
-			if($persona!=""){
-				if($combopersona=="LIKE"){
-					$consulta2 = "persona_contacto ".$combopersona." '%".$persona."%'";
+			if($datos['persona']!=""){
+				if($datos['combopersona']=="LIKE"){
+					$consulta2 = "persona_contacto ".$datos['combopersona']." '%".$datos['persona']."%'";
 				}
 				else{
-					$consulta2 = "persona_contacto ".$combopersona." '".$persona."'";
+					$consulta2 = "persona_contacto ".$datos['combopersona']." '".$datos['persona']."'";
 				}
 
 				array_push($consultas, $consulta2);
 			}
-			if($fecha!=""){
-				if($combofecha=="LIKE"){
-					$consulta3 = "CAST(fecha_crea AS DATE) ".$combofecha." '%".$fecha."%'";
+			if($datos['fecha']!=""){
+				if($datos['combofecha']=="LIKE"){
+					$consulta3 = "CAST(fecha_crea AS DATE) ".$datos['combofecha']." '%".$datos['fecha']."%'";
 				}
 				else{
-					$consulta3 = "CAST(fecha_crea AS DATE) ".$combofecha." '".$fecha."'";
+					$consulta3 = "CAST(fecha_crea AS DATE) ".$datos['combofecha']." '".$datos['fecha']."'";
 				}
 
 				array_push($consultas, $consulta3);
 			}
 			$filtro = implode(' AND ', $consultas);
 
-			$TAMANO_PAGINA = 10; 
+			$TAMANO_PAGINA = 5; 
 
 			@$pagina = $_GET['pagina'];
 

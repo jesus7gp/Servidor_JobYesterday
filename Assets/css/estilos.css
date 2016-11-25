@@ -1,5 +1,27 @@
+.respLogout{
+	width: 60px;
+}
+.acciones{
+	text-align: right;
+}
+.card-header{
+	background: #005F6B;
+	color: white;
+	border: none;
+}
+.card{
+	border-color: #005F6B;
+	border-width: 10px;
+	background: #005F6B;
+}
+.card-block{
+	background: white;
+}
+textarea{
+	resize:none;
+}
+
 .jumbo1{
-	/*background: #0275D8;*/
 	background: #005F6B;
 	color:white;
 }
@@ -34,16 +56,15 @@ body{
 	font-size: 20px;
 }
 
-#botonirbusqueda{
-	width: 100%;
-	font-size: 18px;
+.botonIr{
+	border-width:  1px!important;
+	border-color:white!important;
 }
 
 #encabezado{
 	background: #343838!important;
 	border-radius: 0;
 }
-
 
 #pie{
 	background: #F2F2F2;
@@ -79,6 +100,9 @@ body{
 .editar{
 	background: #64DBB3;
 	border-color: #64DBB3;
+	height: 34px;
+	width: 34px;
+	padding: 6px;
 }
 .editar:hover{
 	background: #4AD38A;
@@ -91,6 +115,9 @@ body{
 .borrar{
 	background: #F25754;
 	border-color: #F25754;
+	height: 34px;
+	width: 34px;
+	padding: 6px;
 }
 .borrar:hover{
 	background: #BF2B2E;
@@ -103,6 +130,9 @@ body{
 .info{
 	background: #00B4CC;
 	border-color: #00B4CC;
+	height: 34px;
+	width: 34px;
+	padding: 6px;
 }
 .info:hover{
 	background: #008C9E;

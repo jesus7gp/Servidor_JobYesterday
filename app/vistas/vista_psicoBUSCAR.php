@@ -16,8 +16,8 @@
 		<div class="col-md-2"></div><div class="col-md-10"><label for="">Descripción:</label></div>
 		</div>
 		<div class="input-group">
-		<span class="input-group-addon"><?php echo CreaSelect('combodescripcion',array('='=>'Igual','LIKE'=>'Contiene','>'=>'Mayor que','<'=>'Menor que'),isset($combodescripcion)? $combodescripcion : ''); ?></span>
-		<input type="text" name="descripcion" class="form-control inputBuscar" value="<?php echo isset($descripcion)? $descripcion : ''; ?>">
+		<span class="input-group-addon"><?php echo CreaSelect('combodescripcion',array('='=>'Igual','LIKE'=>'Contiene','>'=>'Mayor que','<'=>'Menor que'),isset($datos['combodescripcion'])? $datos['combodescripcion'] : ''); ?></span>
+		<input type="text" name="descripcion" class="form-control inputBuscar" value="<?php echo isset($datos['descripcion'])? $datos['descripcion'] : ''; ?>">
 		</div>
 	</fieldset>
 	<fieldset class="form-group">
@@ -25,8 +25,8 @@
 		<div class="col-md-2"></div><div class="col-md-10"><label for="">Persona de contacto:</label></div>
 		</div>
 		<div class="input-group">
-		<span class="input-group-addon"><?php echo CreaSelect('combopersona',array('='=>'Igual','LIKE'=>'Contiene','>'=>'Mayor que','<'=>'Menor que'), isset($combopersona)? $combopersona : ''); ?></span>
-		<input type="text" name="persona" class="form-control inputBuscar" value="<?php echo isset($persona)? $persona : ''; ?>">
+		<span class="input-group-addon"><?php echo CreaSelect('combopersona',array('='=>'Igual','LIKE'=>'Contiene','>'=>'Mayor que','<'=>'Menor que'), isset($datos['combopersona'])? $datos['combopersona'] : ''); ?></span>
+		<input type="text" name="persona" class="form-control inputBuscar" value="<?php echo isset($datos['persona'])? $datos['persona'] : ''; ?>">
 		</div>
 	</fieldset>
 	<fieldset class="form-group">
@@ -34,8 +34,8 @@
 		<div class="col-md-2"></div><div class="col-md-10"><label for="">Fecha de comunicación:</label></div>
 		</div>
 		<div class="input-group">
-		<span class="input-group-addon"><?php echo CreaSelect('combofecha',array('='=>'Igual','LIKE'=>'Contiene','>'=>'Mayor que','<'=>'Menor que'),isset($combofecha)? $combofecha : ''); ?></span>
-		<input type="text" name="fecha" placeholder="AAAA-MM-DD" class="form-control inputBuscar" value="<?php echo isset($fecha)? $fecha : ''; ?>">
+		<span class="input-group-addon"><?php echo CreaSelect('combofecha',array('='=>'Igual','LIKE'=>'Contiene','>'=>'Mayor que','<'=>'Menor que'),isset($datos['combofecha'])? $datos['combofecha'] : ''); ?></span>
+		<input type="text" name="fecha" placeholder="AAAA-MM-DD" class="form-control inputBuscar" value="<?php echo isset($datos['fecha'])? $datos['fecha'] : ''; ?>">
 		</div>
 	</fieldset>
 	
@@ -44,67 +44,44 @@
 	<a class="btn btn-secondary" href="?ctrl=ctrl_psicoMOSTRAR">Volver</a>
 </FORM>
 <br><br><br><br>
-
-<table class="table table-striped">
-	<thead>
-		<tr>
-			<th>Descripción</th>
-			<th>Persona de contacto</th>
-			<th>Nº teléfono</th>
-			<th>E-Mail</th>
-			<th>Fecha de creación</th>
-			<th colspan="3"></th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php 
+<?php 
 			if(isset($resultado)){
 				if($num_total_registros > 0){
-					muestraOfertasPsico($resultado);
+					foreach($resultado as $registro){?>
+						<div class="card">
+							<div class="card-header">
+								<div class="col-md-10"><h5><?=$registro['descripcion']?></h5></div>
+								<div class="col-md-2 acciones">
+									<div class="btn-group" role="toolbar">
+										<a class="btn btn-info info" href="?ctrl=ctrl_psicoINFO&id=<?=$registro['id']?>"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+										<a class="btn btn-success editar" href="?ctrl=ctrl_ESTADO&id=<?=$registro['id']?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+									</div>
+								</div>
+							</div>
+							<div class="card-block">
+								<strong>Persona de contacto: </strong><?=$registro['persona_contacto']?><br>
+								<strong>Teléfono de contacto: </strong><?=$registro['telefono']?><br>
+								<strong>Correo electrónico: </strong><?=$registro['email']?><br>
+
+							</div>
+							<div class="card-footer"><strong>Fecha de creación: </strong><?=stringFecha($registro['fecha_crea'])?></div>
+						</div>
+				<?php
+					}
 				}
 				else{
-					echo "<tr><td colspan='8'>No se encontraron resultados.</td></tr>";
+					echo "No se encontraron resultados.";
 				}
 			}
 			else{
-				echo "<tr><td colspan='8'>No se ha realizado ninguna búsqueda.</td></tr>";
+				echo "No se ha realizado ninguna búsqueda.";
 			}
 		?>
-	</tbody>
-</table>
+	
 <?php
- 
-if (isset($total_paginas) && $total_paginas > 1){
-//Esto controla que no se avance ni retroceda más de lo conveniente. 
-//RECOMENDABLE PASAR ESTA FUNCIONALIDAD A LA CARPETA CONTROLADORES
-	if($pagina+1 > $total_paginas){
-		$siguiente = $pagina;
+	if (isset($total_paginas) && $total_paginas > 1){
+		paginacion("ctrl_psicoBUSCAR",$pagina, $total_paginas, $datos);
 	}
-	else{
-		$siguiente = $pagina + 1;
-	}
-
-	if($pagina-1 == 0){
-		$anterior = $pagina;
-	}
-	else{
-		$anterior = $pagina - 1;
-	}
-	echo "<ul class='pagination'>";
-	echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_psicoBUSCAR&pagina=" . 1 . "&descripcion=".$descripcion."&persona=".$persona."&fecha=".$fecha."&combodescripcion=".$combodescripcion."&combopersona=".$combopersona."&combofecha=".$combofecha."'>Primero</a></span></li>";
-	echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_psicoBUSCAR&pagina=" . $anterior . "&descripcion=".$descripcion."&persona=".$persona."&fecha=".$fecha."&combodescripcion=".$combodescripcion."&combopersona=".$combopersona."&combofecha=".$combofecha."'>Anterior</a></span></li>";
-	for ($i=1;$i<=$total_paginas;$i++){
-		if ($pagina == $i)
-      //si muestro el índice de la página actual, no coloco enlace
-			echo "<li class='page-item active'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_psicoBUSCAR&pagina=" . $pagina . "&descripcion=".$descripcion."&persona=".$persona."&fecha=".$fecha."&combodescripcion=".$combodescripcion."&combopersona=".$combopersona."&combofecha=".$combofecha."'>" . $pagina . "</a></span></li>";
-		else
-      //si el índice no corresponde con la página mostrada actualmente, coloco el enlace para ir a esa página
-			echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_psicoBUSCAR&pagina=" . $i . "&descripcion=".$descripcion."&persona=".$persona."&fecha=".$fecha."&combodescripcion=".$combodescripcion."&combopersona=".$combopersona."&combofecha=".$combofecha."'>" . $i . "</a></span></li>";
-	}
-	echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_psicoBUSCAR&pagina=" . $siguiente . "&descripcion=".$descripcion."&persona=".$persona."&fecha=".$fecha."&combodescripcion=".$combodescripcion."&combopersona=".$combopersona."&combofecha=".$combofecha."'>Siguiente</a></span></li>";
-	echo "<li class='page-item'><span aria-hidden='true'><a class='page-link' href='?ctrl=ctrl_psicoBUSCAR&pagina=" . $total_paginas . "&descripcion=".$descripcion."&persona=".$persona."&fecha=".$fecha."&combodescripcion=".$combodescripcion."&combopersona=".$combopersona."&combofecha=".$combofecha."'>Último</a></span></li>";
-	echo "</ul>";
-}
 ?>
 <br><br>
 <br><br>

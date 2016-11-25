@@ -1,6 +1,8 @@
 <?php
 if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
-	include_once MODEL_PATH.'funciones.php';
+	include_once MODEL_PATH.'modelo_ofertas.php';
+	include_once MODEL_PATH.'modelo_usuarios.php';
+	include_once MODEL_PATH.'modelo_provincias.php';
 	include_once HELPERS_PATH.'helpers.php';
 	include_once CTRL_PATH.'filtrado.php';
 	if (! $_POST){
@@ -12,7 +14,8 @@ if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
 	{
 		$id = $_POST['id'];
 		borraOferta($id);
-		header('Location: ?ctrl=ctrl_MOSTRAR.php'); 
+		$strMensaje = "    Se ha borrado con éxito.";
+		include_once VIEW_PATH."vista_MENSAJE.php"; 
 	}
 }
 else{

@@ -4,7 +4,7 @@
 <table class="table table-striped">
 	<tr><th class="tablaMuestra">Nombre:</th><td> <?php echo $reg['nombre']?></td></tr>
 	<tr><th class="tablaMuestra">Clave:</th><td> <?php echo $reg['clave']?></td></tr>
-	<tr><th class="tablaMuestra">Tipo:</th><td> <?php echo $reg['tipo']?></td></tr>
+	<tr><th class="tablaMuestra">Tipo:</th><td> <?php echo stringTipoUsuario($reg['tipo'])?></td></tr>
 </table>
 <FORM ACTION="" METHOD="POST">
 	<input type="hidden" name="id" value="<?= $reg['id'] ?> ">
