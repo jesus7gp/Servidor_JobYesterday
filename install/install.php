@@ -1,6 +1,3 @@
-<?php include "../app/config.php"; 
-?>
-	
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,7 +22,7 @@
 	}		
 	else{
 		$errores = false;
-		if($_POST['servidor'] != $db_conf['servidor'] || $_POST['usuario'] != $db_conf['usuario'] || $_POST['password'] != $db_conf['password'] || $_POST['base_datos'] != $db_conf['base_datos']){
+		if($_POST['servidor'] != "localhost" || $_POST['usuario'] != "root" || $_POST['password'] != "" || $_POST['base_datos'] == ""){
 			$errores = true;
 		}
 		if($errores){
@@ -82,8 +79,19 @@ function formulario($errores=null){
 <?php 
 	} 
 	function CreaDB(){
-		$file = file_get_contents("ofertas.sql");
+		$config = fopen('../app/config.php','w');
+		fwrite($config,'<?php
+				$db_conf=array(
+					"servidor"=>"localhost",
+					"usuario"=>"root",
+					"password"=>"",
+					"base_datos"=>"'.$_POST["base_datos"].'"
+				);'
+		);
+		fclose($config);
+
+		$texto = "CREATE DATABASE IF NOT EXISTS `".$_POST['base_datos']."` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin; USE `".$_POST['base_datos']."`;".file_get_contents("ofertas.sql");
 		$link = mysqli_connect($_POST['servidor'], $_POST['usuario'], $_POST['password']);
-		$link->multi_query($file);
+		$link->multi_query($texto);
 	}
 ?>
