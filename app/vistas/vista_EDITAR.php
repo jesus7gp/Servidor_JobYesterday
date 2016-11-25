@@ -49,7 +49,7 @@
 	</fieldset>
 	<fieldset class="form-group">
 		<label for="">Fecha de comunicación*:</label>
-		<input type="text" placeholder="AAAA-MM-DD" name="fechacom" class="form-control" value="<?=VP('fechacom',$reg["fecha_com"])?>"><br>
+		<input type="text" placeholder="DD-MM-AAAA" name="fechacom" class="form-control" value="<?=VP('fechacom',stringFecha($reg["fecha_com"]))?>"><br>
 	</fieldset>
 	<fieldset class="form-group">
 		<label for="">Psicólogo encargado:</label>
@@ -66,7 +66,7 @@
 
 	<input type="hidden" name="id" value="<?= $reg['id'] ?> ">
 	<input class="btn btn-primary" name="mod" type="submit" value="Guardar cambios">
-	<a class="btn btn-secondary" href="?ctrl=ctrl_MOSTRAR">Cancelar</a>
+	<a class="btn btn-secondary" href="<?=veAtras()?>">Cancelar</a>
 </FORM>
 <br><br>
 <div class="alert alert-info" role="alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><b>	IMPORTANTE: </b>Los campos marcados con un * son obligatorios.</div>

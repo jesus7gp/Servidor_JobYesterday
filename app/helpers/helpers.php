@@ -35,7 +35,7 @@ function CreaRadio($name, $opciones, $valorDefecto='')
 
 function stringFecha($cadena){
 	$fecha = new DateTime($cadena);
-	return date_format($fecha, 'Y-m-d');
+	return date_format($fecha, 'd-m-Y');
 }
 
 function paginacion($controlador, $pagina, $total_paginas, $datos=null){
@@ -105,5 +105,10 @@ function stringTipoUsuario($tipo){
 	if($tipo == "p"){
 		return "Psicólogo";
 	}
+}
+
+function veAtras(){
+	 if(isset($_SERVER['HTTP_REFERER'])) { $previous = $_SERVER['HTTP_REFERER']; }
+	 return $previous;
 }
 ?>

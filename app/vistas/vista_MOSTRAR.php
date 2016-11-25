@@ -19,11 +19,7 @@
 		echo "Mostrando la página " . $pagina . " de " . $total_paginas . "<p>"; 
 		?>
 	</div>
-	<div class="col-md-4">
-		<!--BUSCAR-->
-		
-				
-		
+	<div class="col-md-4">		
 	</div>
 	<div class="col-md-4 acciones">
 		<div class="btn-group">

@@ -12,7 +12,7 @@ function VP($nombre_campo, $valor_defecto){
 //FUNCIONES DE VALIDACIÓN DE DATOS
 function hayErrorFecha($fecha){
 	$fecha1 = $fecha;
-	$fecha = date_parse($fecha);
+	$fecha = date_parse_from_format('d-m-Y', $fecha);
 	$ahora = date('Y-m-d');
 	if (checkdate($fecha["month"], $fecha["day"], $fecha["year"])){
 		if (strtotime($fecha1)<=strtotime($ahora)){

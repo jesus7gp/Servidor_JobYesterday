@@ -10,8 +10,10 @@ include_once MODEL_PATH.'claseBBDD.php';
  *
  */
 function insertaOferta($datos){
+
+	$fechacom = date('Y-m-d', strtotime($datos["fechacom"]));
 	$sentencia = 'INSERT INTO oferta (descripcion, persona_contacto, telefono, email, direccion, poblacion, codigo_postal, provincia, estado, fecha_com, psicologo, candidato, otros_datos_candidato)
-			VALUES ("'.$datos["descripcion"].'", "'.$datos["perscont"].'", "'.$datos["tlfnocont"].'", "'.$datos["email"].'", "'.$datos["direccion"].'", "'.$datos["poblacion"].'", "'.$datos["codpostal"].'", "'.$datos["provincia"].'", "'.$datos["estado"].'", "'.$datos["fechacom"].'", "'.$datos["psicologo"].'", "'.$datos["candidato"].'", "'.$datos["datoscandidato"].'");';
+			VALUES ("'.$datos["descripcion"].'", "'.$datos["perscont"].'", "'.$datos["tlfnocont"].'", "'.$datos["email"].'", "'.$datos["direccion"].'", "'.$datos["poblacion"].'", "'.$datos["codpostal"].'", "'.$datos["provincia"].'", "'.$datos["estado"].'", "'.$fechacom.'", "'.$datos["psicologo"].'", "'.$datos["candidato"].'", "'.$datos["datoscandidato"].'");';
 	$Db = db::getInstance();
 	$Db -> Ejecutar($sentencia);
 }
@@ -46,7 +48,8 @@ function borraOferta($cod){
  *
  */
 function modificaOferta($id, $datos){
-	$sentencia = 'UPDATE oferta SET descripcion="'.$datos["descripcion"].'", persona_contacto="'.$datos["perscont"].'", telefono="'.$datos["tlfnocont"].'", email="'.$datos["email"].'", direccion="'.$datos["direccion"].'", poblacion="'.$datos["poblacion"].'", codigo_postal="'.$datos["codpostal"].'", provincia="'.$datos["provincia"].'", estado="'.$datos["estado"].'", fecha_com="'.$datos["fechacom"].'", psicologo="'.$datos["psicologo"].'", candidato="'.$datos["candidato"].'", otros_datos_candidato="'.$datos["datoscandidato"].'" WHERE id = "'.$id.'";';
+	$fechacom = date('Y-m-d', strtotime($datos["fechacom"]));
+	$sentencia = 'UPDATE oferta SET descripcion="'.$datos["descripcion"].'", persona_contacto="'.$datos["perscont"].'", telefono="'.$datos["tlfnocont"].'", email="'.$datos["email"].'", direccion="'.$datos["direccion"].'", poblacion="'.$datos["poblacion"].'", codigo_postal="'.$datos["codpostal"].'", provincia="'.$datos["provincia"].'", estado="'.$datos["estado"].'", fecha_com="'.$fechacom.'", psicologo="'.$datos["psicologo"].'", candidato="'.$datos["candidato"].'", otros_datos_candidato="'.$datos["datoscandidato"].'" WHERE id = "'.$id.'";';
 	$Db = db::getInstance();
 	$Db -> Ejecutar($sentencia);
 }

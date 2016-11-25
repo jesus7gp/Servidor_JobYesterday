@@ -12,12 +12,12 @@
 	<tr><th class="tablaMuestra">Provincia:</th><td> <?php echo $reg['provincia']?></td></tr>
 	<tr><th class="tablaMuestra">Estado:</th><td> <?php echo stringEstado($reg['estado'])?></td></tr>
 	<tr><th class="tablaMuestra">Fecha de creación:</th><td> <?php echo stringFecha($reg['fecha_crea'])?></td></tr>
-	<tr><th class="tablaMuestra">Fecha de comunicación:</th><td> <?php echo $reg['fecha_com']?></td></tr>
+	<tr><th class="tablaMuestra">Fecha de comunicación:</th><td> <?php echo stringFecha($reg['fecha_com'])?></td></tr>
 	<tr><th class="tablaMuestra">Psicólogo encargado:</th><td> <?php echo $reg['psicologo']?></td></tr>
 	<tr><th class="tablaMuestra">Candidato seleccionado:</th><td> <?php echo $reg['candidato']?></td></tr>
 	<tr><th class="tablaMuestra">Otros datos candidato:</th><td> <?php echo $reg['otros_datos_candidato']?></td></tr>
 </table>
-<a class="btn btn-secondary" href="?ctrl=ctrl_psicoMOSTRAR">Volver</a>
+<a class="btn btn-secondary" href="<?=veAtras()?>">Volver</a>
 <br><br>
 <br><br>
 <br><br>
