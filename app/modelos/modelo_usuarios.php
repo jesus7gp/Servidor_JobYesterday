@@ -10,7 +10,7 @@ include_once MODEL_PATH.'claseBBDD.php';
  *
  */
 function usuariosPaginacion($inicio, $tam){
-    $sentencia = "SELECT * FROM usuario LIMIT ".$inicio.",".$tam;
+    $sentencia = "SELECT * FROM usuario WHERE nombre != 'administrador' LIMIT ".$inicio.",".$tam;
 
 	$Db = db::getInstance();
     return $Db->Consulta($sentencia);

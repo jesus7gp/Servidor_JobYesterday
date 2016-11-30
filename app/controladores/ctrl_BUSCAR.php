@@ -1,5 +1,8 @@
 <?php
 if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
+
+	$_SESSION['url'] = $_SERVER['QUERY_STRING'];
+	
 	include_once MODEL_PATH.'modelo_ofertas.php';
 	include_once MODEL_PATH.'modelo_usuarios.php';
 	include_once MODEL_PATH.'modelo_provincias.php';
@@ -49,11 +52,12 @@ if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
 				array_push($consultas, $consulta2);
 			}
 			if($datos['fecha']!=""){
+				$fecha = date('Y-m-d', strtotime($datos["fecha"]));
 				if($datos['combofecha']=="LIKE"){
 					$consulta3 = "CAST(fecha_crea AS DATE) ".$datos['combofecha']." '%".$datos['fecha']."%'";
 				}
 				else{
-					$consulta3 = "CAST(fecha_crea AS DATE) ".$datos['combofecha']." '".$datos['fecha']."'";
+					$consulta3 = "CAST(fecha_crea AS DATE) ".$datos['combofecha']." '".$fecha."'";
 				}
 
 				array_push($consultas, $consulta3);

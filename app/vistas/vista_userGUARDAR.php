@@ -24,7 +24,7 @@
 	
 
 	<input class="btn btn-primary" name="add" type="submit" value="Guardar usuario">
-	<a class="btn btn-secondary" href="<?=veAtras()?>">Cancelar</a>
+	<a class="btn btn-secondary" href="?ctrl=ctrl_USUARIOS">Cancelar</a>
 </FORM>
 <br><br>
 <div class="alert alert-info" role="alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><b>	IMPORTANTE: </b>Todos los campos son obligatorios.</div>

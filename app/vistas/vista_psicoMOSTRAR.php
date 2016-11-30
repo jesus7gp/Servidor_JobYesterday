@@ -21,8 +21,6 @@
 		?>
 	</div>
 	<div class="col-md-1 acciones">
-		<!--BUSCAR-->
-		
 		<a href="?ctrl=ctrl_psicoBUSCAR" class="btn btn-primary botonIr" title="Realizar búsqueda detallada"><i class="fa fa-search" aria-hidden="true"></i></a>			
 		
 	</div>

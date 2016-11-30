@@ -66,7 +66,7 @@
 
 	<input type="hidden" name="id" value="<?= $reg['id'] ?> ">
 	<input class="btn btn-primary" name="mod" type="submit" value="Guardar cambios">
-	<a class="btn btn-secondary" href="<?=veAtras()?>">Cancelar</a>
+	<a class="btn btn-secondary" href="<?=veAtras($_SESSION['url'])?>">Cancelar</a>
 </FORM>
 <br><br>
 <div class="alert alert-info" role="alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><b>	IMPORTANTE: </b>Los campos marcados con un * son obligatorios.</div>

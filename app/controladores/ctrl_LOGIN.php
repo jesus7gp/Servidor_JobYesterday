@@ -27,7 +27,7 @@ else
 		$_SESSION['user'] = $_POST['nombre'];
 		$_SESSION['pass'] = $_POST['clave'];
 		$_SESSION['tipo'] = "Administrador";
-
+		$_SESSION['buscar'] = false;
 		$time = time();
 		$_SESSION['time'] = date('H:i',$time);
 
@@ -38,7 +38,7 @@ else
 		$_SESSION['user'] = $_POST['nombre'];
 		$_SESSION['pass'] = $_POST['clave'];
 		$_SESSION['tipo'] = "Psicólogo";
-
+		$_SESSION['buscar'] = false;
 		$time = time();
 		$_SESSION['time'] = date('H:i',$time);
 		

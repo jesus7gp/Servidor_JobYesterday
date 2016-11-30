@@ -123,10 +123,6 @@ body{
 	background: #BF2B2E;
 	border-color: #BF2B2E;
 }
-/*.borrar:active{
-	background: #BF2B2E!important;
-	border-color: #BF2B2E!important;
-}*/
 .info{
 	background: #00B4CC;
 	border-color: #00B4CC;
@@ -138,7 +134,3 @@ body{
 	background: #008C9E;
 	border-color: : #008C9E;
 }
-/*.info:active{
-	background: #008C9E!important;
-	border-color: : #008C9E!important;
-}*/

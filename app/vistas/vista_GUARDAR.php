@@ -10,7 +10,6 @@
 
 	<fieldset class="form-group">
 		<label for="">Descripción*:</label>
-		<!--<input type="text" name="descripcion" class="form-control" value="<?=VP('descripcion','')?>"><br>-->
 		<textarea name="descripcion" class="form-control" ><?=VP('descripcion','')?></textarea><br>
 	</fieldset>
 	<fieldset class="form-group">
@@ -44,7 +43,7 @@
 	</fieldset>
 	<fieldset class="form-group">
 		<label for="">Estado:</label><br>
-		<?php echo CreaRadio('estado',array('P'=>'Pendiente de iniciar selección','R'=>'Realizando selección','S'=>'Seleccionado candidato','C'=>'Cancelada'),VP('estado','')); ?>
+		<?php echo CreaRadio('estado',array('P'=>'Pendiente de iniciar selección','R'=>'Realizando selección','S'=>'Seleccionado candidato','C'=>'Cancelada'),VP('estado','P')); ?>
 		<br>
 	</fieldset>
 	<fieldset class="form-group">
@@ -65,7 +64,7 @@
 	</fieldset>
 
 	<input class="btn btn-primary" name="add" type="submit" value="Inserta oferta">
-	<a class="btn btn-secondary" href="<?=veAtras()?>">Cancelar</a>
+	<a class="btn btn-secondary" href="<?=veAtras($_SESSION['url'])?>">Cancelar</a>
 </FORM>
 <br><br>
 <div class="alert alert-info" role="alert"><i class="fa fa-exclamation-circle" aria-hidden="true"></i><b>	IMPORTANTE: </b>Los campos marcados con un * son obligatorios.</div>

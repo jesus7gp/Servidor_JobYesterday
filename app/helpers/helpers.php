@@ -1,5 +1,9 @@
 <?php
-
+/**
+ *
+ * Función encargada de crear un combobox con los datos pasados
+ *
+ */
 function CreaSelect($name, $opciones, $valorDefecto='')
 {
 	$html="\n".'<select name="'.$name.'" class="custom-select">';
@@ -17,6 +21,11 @@ function CreaSelect($name, $opciones, $valorDefecto='')
 	return $html;
 }
 
+/**
+ *
+ * Función encargada de crear un conjunto de radiobutton con los datos pasados
+ *
+ */
 function CreaRadio($name, $opciones, $valorDefecto='')
 {
 	$html="";
@@ -33,11 +42,25 @@ function CreaRadio($name, $opciones, $valorDefecto='')
 	return $html;
 }
 
+/**
+ *
+ * Función encargada de mostrar una fecha en el formato correcto
+ *
+ */
 function stringFecha($cadena){
+	if($cadena =="" || is_null($cadena)){
+		return "";
+	}
+
 	$fecha = new DateTime($cadena);
 	return date_format($fecha, 'd-m-Y');
 }
 
+/**
+ *
+ * Función encargada de realizar la paginación
+ *
+ */
 function paginacion($controlador, $pagina, $total_paginas, $datos=null){
 	if (isset($total_paginas) && $total_paginas > 1){
 		if(isset($datos)){
@@ -83,6 +106,11 @@ function paginacion($controlador, $pagina, $total_paginas, $datos=null){
 	}
 }
 
+/**
+ *
+ * Función encargada de mostrar la frase completa del estado
+ *
+ */
 function stringEstado($estado){
 	if($estado == "P"){
 		return "Pendiente de iniciar selección";
@@ -98,6 +126,11 @@ function stringEstado($estado){
 	}
 }
 
+/**
+ *
+ * Función encargada de mostrar el tipo completo del usuario
+ *
+ */
 function stringTipoUsuario($tipo){
 	if($tipo == "a"){
 		return "Administrador";
@@ -107,8 +140,13 @@ function stringTipoUsuario($tipo){
 	}
 }
 
-function veAtras(){
-	 if(isset($_SERVER['HTTP_REFERER'])) { $previous = $_SERVER['HTTP_REFERER']; }
-	 return $previous;
+/**
+ *
+ * Función encargada de localizar la página anterior, el parámetro que se pasará será una variable de sesión
+ *
+ */
+function veAtras($url){
+	 
+	 return "?".$url;
 }
 ?>

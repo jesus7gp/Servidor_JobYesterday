@@ -3,5 +3,5 @@
 					"servidor"=>"localhost",
 					"usuario"=>"root",
 					"password"=>"",
-					"base_datos"=>"DB_OFERTAS"
+					"base_datos"=>"db_ofertas"
 				);

@@ -31,11 +31,11 @@
 	</fieldset>
 	<fieldset class="form-group">
 		<div class="row">
-		<div class="col-md-2"></div><div class="col-md-10"><label for="">Fecha de comunicación:</label></div>
+		<div class="col-md-2"></div><div class="col-md-10"><label for="">Fecha de creación:</label></div>
 		</div>
 		<div class="input-group">
 		<span class="input-group-addon"><?php echo CreaSelect('combofecha',array('='=>'Igual','LIKE'=>'Contiene','>'=>'Mayor que','<'=>'Menor que'),isset($datos['combofecha'])? $datos['combofecha'] : ''); ?></span>
-		<input type="text" name="fecha" placeholder="AAAA-MM-DD" class="form-control inputBuscar" value="<?php echo isset($datos['fecha'])? $datos['fecha'] : ''; ?>">
+		<input type="text" name="fecha" placeholder="DD-MM-AAAA" class="form-control inputBuscar" value="<?php echo isset($datos['fecha'])? $datos['fecha'] : ''; ?>">
 		</div>
 	</fieldset>
 	

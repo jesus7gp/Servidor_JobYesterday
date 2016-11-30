@@ -5,6 +5,9 @@ if(isset($_SESSION['tipo']) && $_SESSION['tipo'] == "Administrador"){
 	include_once MODEL_PATH.'modelo_provincias.php';
 	include_once HELPERS_PATH.'helpers.php';
 	include_once CTRL_PATH.'filtrado.php';
+	if($_GET['id']==1){ //Así se evita que se modifique el administrador principal
+		header('Location: ?ctrl=logout');
+	}
 	$reg = eligeUsuario($_GET['id']);
 	$nombre = $reg['nombre'];
 	$errores = false;
